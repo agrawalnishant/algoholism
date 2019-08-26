@@ -2,15 +2,15 @@ package com.somedomain.ds.containers.stack;
 
 public interface Stack<T> {
 
-	public void push(T t);
+    void push(T t);
 
-	public T pop();
+    T pop();
 
-	public boolean isEmpty();
+    boolean isEmpty();
 
-	public boolean isFull();
+    boolean isFull();
 
-	public Integer size();
+    Integer size();
 
 
 }
