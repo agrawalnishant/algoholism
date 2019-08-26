@@ -12,7 +12,7 @@ public class StackTest {
     private ArrayBackedStack integerStack;
 
     @BeforeEach
-    private void init(){
+    private void init() {
         integerStack = new ArrayBackedStack<Integer>(Integer.class, 5);
     }
 
@@ -22,7 +22,7 @@ public class StackTest {
         integerStack.push(2);
         integerStack.push(3);
         integerStack.push(4);
-        assertEquals(",1,2,3,4,null",integerStack.toString(), "Stack has these elements:" + integerStack.toString());
+        assertEquals(",1,2,3,4,null", integerStack.toString(), "Stack has these elements:" + integerStack.toString());
 
     }
 
@@ -33,7 +33,7 @@ public class StackTest {
         integerStack.push(3);
         integerStack.push(4);
         assertTrue(integerStack.pop().equals(4));
-        assertEquals(",1,2,3,null,null",integerStack.toString());
+        assertEquals(",1,2,3,null,null", integerStack.toString());
     }
 
     @Test
@@ -50,7 +50,7 @@ public class StackTest {
     }
 
     @Test
-    public void testSize(){
+    public void testSize() {
         integerStack.push(1);
         assertEquals(1, integerStack.size());
         integerStack.push(2);
