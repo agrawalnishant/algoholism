@@ -49,15 +49,15 @@ public class StackTest {
     }
 
     @Test
-    public void testSize() {
+    public void testCount() {
         integerStack.push(1);
-        assertEquals(1, integerStack.size());
+        assertEquals(1, integerStack.count());
         integerStack.push(2);
-        assertEquals(2, integerStack.size(), integerStack.toString());
+        assertEquals(2, integerStack.count(), integerStack.toString());
         integerStack.pop();
-        assertEquals(1, integerStack.size());
+        assertEquals(1, integerStack.count());
         integerStack.pop();
-        assertEquals(0, integerStack.size());
+        assertEquals(0, integerStack.count());
         assertTrue(integerStack.isEmpty());
 
     }

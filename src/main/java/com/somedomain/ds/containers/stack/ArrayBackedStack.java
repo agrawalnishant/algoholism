@@ -49,7 +49,7 @@ public class ArrayBackedStack<T extends Object> implements Stack<T> {
     }
 
     @Override
-    public Integer size() {
+    public Integer count() {
         return top;
     }
 

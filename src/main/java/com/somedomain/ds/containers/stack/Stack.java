@@ -10,7 +10,9 @@ public interface Stack<T> {
 
     boolean isFull();
 
-    Integer size();
+    Integer count();
+
+
 
 
 }

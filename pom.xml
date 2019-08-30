@@ -14,6 +14,7 @@
         <maven.compiler.source>12</maven.compiler.source>
         <junit.jupiter.version>5.5.1</junit.jupiter.version>
         <junit.platform.version>1.5.1</junit.platform.version>
+        <lombok.version>1.18.8</lombok.version>
     </properties>
 
     <dependencies>
@@ -47,6 +48,11 @@
             <version>${junit.jupiter.version}</version>
             <scope>test</scope>
         </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
     </dependencies>
 
     <build>

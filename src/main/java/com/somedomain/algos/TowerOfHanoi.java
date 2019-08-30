@@ -13,7 +13,7 @@ public class TowerOfHanoi {
 
     public static void main(String[] args) {
         TowerOfHanoi.init();
-        TowerOfHanoi.move(source.size(), source, intermediate, destination);
+        TowerOfHanoi.move(source.count(), source, intermediate, destination);
         TowerOfHanoi.showTotalMoves();
     }
 
