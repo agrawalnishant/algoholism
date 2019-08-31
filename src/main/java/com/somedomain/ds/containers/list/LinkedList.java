@@ -52,6 +52,7 @@ public class LinkedList<T> implements List<T> {
                 if (iteratorNode.getNextNode().getElement() == element) {
                     iteratorNode.setNextNode(iteratorNode.getNextNode().getNextNode());
                     --currentSize;
+                    break;
                 } else {
                     iteratorNode = iteratorNode.getNextNode();
                 }
@@ -113,19 +114,20 @@ public class LinkedList<T> implements List<T> {
         currentSize = 0;
     }
 
-    public ListNode<T> findElementBefore(final T element) {
+    public T findElementBefore(final T element) {
         boolean foundTarget = false;
         ListNode<T> iteratorNode = null;
         if (currentSize > 0 && element != null) {
             iteratorNode = START_NODE;
             while (iteratorNode.getNextNode() != null) {
-                if (iteratorNode.getNextNode().getElement() == element) {
+                if (iteratorNode.getNextNode().getElement().equals(element)) {
                     foundTarget = true;
+                    break;
                 } else {
                     iteratorNode = iteratorNode.getNextNode();
                 }
             }
         }
-        return foundTarget == true ? iteratorNode : null;
+        return foundTarget == true ? iteratorNode.getElement() : null;
     }
 }
