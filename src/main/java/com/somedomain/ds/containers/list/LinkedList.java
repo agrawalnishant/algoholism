@@ -9,7 +9,6 @@ public class LinkedList<T> implements List<T> {
     //private ListNode<T> headNode;
     private int currentSize;
 
-
     public LinkedList() {
         START_NODE.setNextNode(null);
     }
@@ -28,7 +27,6 @@ public class LinkedList<T> implements List<T> {
         return responseCode;
     }
 
-
     @Override
     public int insertFirst(T element) {
         int responseCode = NO_HOPE;
@@ -41,7 +39,6 @@ public class LinkedList<T> implements List<T> {
         }
         return responseCode;
     }
-
 
     @Override
     public int delete(T element) {
@@ -61,7 +58,6 @@ public class LinkedList<T> implements List<T> {
         return responseCode;
     }
 
-
     @Override
     public int deleteFirst() {
         int responseCode = NO_HOPE;
@@ -77,7 +73,6 @@ public class LinkedList<T> implements List<T> {
         }
         return responseCode;
     }
-
 
     @Override
     public T get(final int position) {
@@ -114,6 +109,7 @@ public class LinkedList<T> implements List<T> {
         currentSize = 0;
     }
 
+    @Override
     public T findElementBefore(final T element) {
         boolean foundTarget = false;
         ListNode<T> iteratorNode = null;

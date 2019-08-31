@@ -2,9 +2,7 @@ package com.somedomain.experiments;
 
 public class Lab {
 
-
     public static void main(String[] args) {
-
 
         //Runnable r = () -> { System.out.println("hello"); };
         int[] arr = new int[2];

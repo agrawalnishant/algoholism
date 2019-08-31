@@ -1,6 +1,5 @@
 package com.somedomain.ds.dictionaries.tree;
 
-
 /**
  * This implementation deletes a node immediately. Can be changed to mark as
  * delete. But than all operations would have to check the status.
@@ -13,11 +12,11 @@ public class BinarySearchTree extends AbstractBinarySearchTree {
     int totalNodes;
     int depth;
 
-
     public BinarySearchTree() {
         super();
     }
 
+    @Override
     public Node getSuccessor(Node delNode) {
 
         Node grandParent = delNode;
@@ -60,6 +59,7 @@ public class BinarySearchTree extends AbstractBinarySearchTree {
 
     }
 
+    @Override
     public Node getRoot() {
         return root;
     }
@@ -67,22 +67,27 @@ public class BinarySearchTree extends AbstractBinarySearchTree {
     /**
      * @param root the root to set
      */
+    @Override
     public void setRoot(Node root) {
         this.root = root;
     }
 
+    @Override
     public int getTotalNodes() {
         return totalNodes;
     }
 
+    @Override
     public void setTotalNodes(int totalNodes) {
         this.totalNodes = totalNodes;
     }
 
+    @Override
     public int getDepth() {
         return depth;
     }
 
+    @Override
     public void setDepth(int depth) {
         this.depth = depth;
     }
