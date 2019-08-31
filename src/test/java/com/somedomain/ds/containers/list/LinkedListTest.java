@@ -84,5 +84,11 @@ class LinkedListTest {
 
     @Test
     void findElementBefore() {
+        stringLinkedList.insert("A");
+        stringLinkedList.insert("B");
+        stringLinkedList.insert("C");
+        System.out.println(stringLinkedList);
+        assertEquals("A", stringLinkedList.findElementBefore("B"));
+        assertEquals("B", stringLinkedList.findElementBefore("C"));
     }
 }

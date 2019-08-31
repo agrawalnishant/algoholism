@@ -16,7 +16,7 @@ public interface List<T> {
 
     int findFirstIndexOf(final T element);
 
-    ListNode<T> findElementBefore(final T element);
+    T findElementBefore(final T element);
 
     void reset();
 
