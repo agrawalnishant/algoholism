@@ -4,87 +4,86 @@ import lombok.Data;
 
 @Data
 public class LinkedList<T> implements List<T> {
-    private ListNode<T> headNode;
-    private int count;
+    private final ListNode<T> START_NODE = new ListNode<T>(null);
 
+    //private ListNode<T> headNode;
+    private int currentSize;
+
+
+    public LinkedList() {
+        START_NODE.setNextNode(null);
+    }
 
     @Override
     public int insert(T element) {
-        int responseCode = ELEMENT_NOT_ADDED;
+        int responseCode = NO_HOPE;
         if (element != null) {
-            ListNode<T> newListNode = new ListNode<>(element, null);
-            if (headNode == null) {
-                headNode = newListNode;
-            } else {
-                ListNode<T> nextNode = headNode;
-                while (nextNode.getNextNode() != null) {
-                    nextNode = nextNode.getNextNode();
-                }
-                nextNode.setNextNode(newListNode);
+            ListNode<T> iteratorNode = START_NODE;
+            for (int counter = 1; counter <= currentSize; counter++) {
+                iteratorNode = iteratorNode.getNextNode();
             }
-            responseCode = ++count;
+            iteratorNode.setNextNode(new ListNode<>(element));
+            responseCode = ++currentSize;
         }
         return responseCode;
     }
 
-    @Override
-    public int insertAtPosition(final T element, final int position) {
-        int responseCode = ELEMENT_NOT_ADDED;
-        if (element != null && position > 0) {
-            ListNode<T> newListNode = new ListNode<>(element, headNode);
-            if (position == 1) {
-                newListNode.setNextNode(headNode);
-                headNode = newListNode;
-            } else {
-                ListNode<T> nodeBefore = headNode;
-                for (int counter = 2; counter < position; counter++) {
-                    nodeBefore = nodeBefore.getNextNode();
-                }
-                newListNode.setNextNode(nodeBefore.getNextNode());
-                nodeBefore.setNextNode(newListNode);
-            }
-            responseCode = ++count;
-        }
-        return responseCode;
-    }
 
     @Override
     public int insertFirst(T element) {
-        return 0;
+        int responseCode = NO_HOPE;
+        if (element != null) {
+            ListNode<T> newNode = new ListNode<>(element);
+            ListNode<T> firstNode = START_NODE.getNextNode();
+            newNode.setNextNode(firstNode);
+            START_NODE.setNextNode(newNode);
+            responseCode = ++currentSize;
+        }
+        return responseCode;
     }
 
-    @Override
-    public int insertLast(T element) {
-        return 0;
-    }
 
     @Override
     public int delete(T element) {
-        return 0;
+        int responseCode = NO_HOPE;
+        if (currentSize > 0 && element != null) {
+            ListNode<T> iteratorNode = START_NODE;
+            while (iteratorNode.getNextNode() != null) {
+                if (iteratorNode.getNextNode().getElement() == element) {
+                    iteratorNode.setNextNode(iteratorNode.getNextNode().getNextNode());
+                    --currentSize;
+                } else {
+                    iteratorNode = iteratorNode.getNextNode();
+                }
+            }
+        }
+        return responseCode;
     }
 
-    @Override
-    public int deleteAtPosition(int position) {
-        return 0;
-    }
 
     @Override
     public int deleteFirst() {
-        return 0;
+        int responseCode = NO_HOPE;
+        ListNode<T> firstNode = START_NODE.getNextNode();
+        if (firstNode != null) {
+            ListNode<T> secondNode = firstNode.getNextNode();
+            if (secondNode != null) {
+                START_NODE.setNextNode(secondNode);
+            } else {
+                START_NODE.setNextNode(null);
+            }
+            responseCode = --currentSize;
+        }
+        return responseCode;
     }
 
-    @Override
-    public int deleteLast() {
-        return 0;
-    }
 
     @Override
     public T get(final int position) {
         ListNode<T> targetNode = null;
-
-        if (position > 0 && position <= count) {
-            int positionCounter = 1;
-            targetNode = headNode;
+        if (position > 0 && position <= currentSize) {
+            int positionCounter = 0;
+            targetNode = START_NODE;
             while (positionCounter++ < position) {
                 targetNode = targetNode.getNextNode();
             }
@@ -94,33 +93,39 @@ public class LinkedList<T> implements List<T> {
 
     @Override
     public int findFirstIndexOf(T element) {
-        return 0;
+        int responseCode = NO_HOPE;
+        int counter = 1;
+        if (currentSize > 0 && element != null) {
+            ListNode<T> iteratorNode = START_NODE;
+            while (iteratorNode.getNextNode() != null && !iteratorNode.getNextNode().getElement().equals(element)) {
+                ++counter;
+                iteratorNode = iteratorNode.getNextNode();
+            }
+            responseCode = counter;
+        }
+
+        return responseCode;
     }
 
     @Override
     public void reset() {
-        headNode = null;
-        count = 0;
+        START_NODE.setNextNode(null);
+        currentSize = 0;
     }
 
-    private ListNode<T> findElementBefore(final T element) {
-        ListNode<T> nextNode = null;
-        if (element != null) {
-            nextNode = headNode;
-            while (nextNode != null) {
-                if (element == nextNode.getElement()) {
-                    break;
+    public ListNode<T> findElementBefore(final T element) {
+        boolean foundTarget = false;
+        ListNode<T> iteratorNode = null;
+        if (currentSize > 0 && element != null) {
+            iteratorNode = START_NODE;
+            while (iteratorNode.getNextNode() != null) {
+                if (iteratorNode.getNextNode().getElement() == element) {
+                    foundTarget = true;
                 } else {
-                    nextNode = nextNode.getNextNode();
+                    iteratorNode = iteratorNode.getNextNode();
                 }
             }
         }
-        return nextNode;
+        return foundTarget == true ? iteratorNode : null;
     }
-
-
-    public int getCount() {
-        return count;
-    }
-
 }
