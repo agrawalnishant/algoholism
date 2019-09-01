@@ -6,7 +6,6 @@ import lombok.Data;
 public class LinkedList<T> implements List<T> {
     private final ListNode<T> START_NODE = new ListNode<T>(null);
 
-    //private ListNode<T> headNode;
     private int currentSize;
 
     public LinkedList() {
@@ -18,7 +17,7 @@ public class LinkedList<T> implements List<T> {
         int responseCode = NO_HOPE;
         if (element != null) {
             ListNode<T> iteratorNode = START_NODE;
-            for (int counter = 1; counter <= currentSize; counter++) {
+            while (iteratorNode.getNextNode() != null) {
                 iteratorNode = iteratorNode.getNextNode();
             }
             iteratorNode.setNextNode(new ListNode<>(element));

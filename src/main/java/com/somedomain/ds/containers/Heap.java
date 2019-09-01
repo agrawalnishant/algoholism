@@ -1,8 +1,8 @@
 package com.somedomain.ds.containers;
 
-import static com.somedomain.algos.Utility.swap;
-
 import java.util.Arrays;
+
+import static com.somedomain.algos.Utility.swap;
 
 public class Heap {
 

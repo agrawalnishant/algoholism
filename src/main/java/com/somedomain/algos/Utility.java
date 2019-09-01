@@ -1,9 +1,9 @@
 package com.somedomain.algos;
 
+import com.somedomain.algos.sorting.InsertionSort;
+
 import java.util.Arrays;
 import java.util.Random;
-
-import com.somedomain.algos.sorting.InsertionSort;
 
 public class Utility {
 

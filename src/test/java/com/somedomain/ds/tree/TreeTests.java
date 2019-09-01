@@ -10,8 +10,6 @@ import com.somedomain.ds.dictionaries.tree.BinarySearchTree;
 import com.somedomain.ds.dictionaries.tree.Node;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
@@ -40,7 +38,6 @@ public class TreeTests {
         tree.insert(leftChild);
         tree.insert(rightChild);
 
-        System.out.println("Depth is :" + tree.getDepth());
 
         tree.traverse(RecursiveTraversal.PREORDER);
         tree.traverse(RecursiveTraversal.INORDER);
@@ -84,8 +81,6 @@ public class TreeTests {
         tree.traverse(RecursiveTraversal.INORDER);
 
         assertEquals(tree.getDepth(), 6, "Depth should be 7 for given data, but instead it is: " + tree.getDepth());
-
-        System.out.println("Inorder representation :" + Arrays.asList(tree.displayAsInorderArray()));
 
         Node newNode = new Node(30, "8", null);
         tree.delete(newNode);
