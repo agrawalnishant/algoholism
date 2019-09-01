@@ -53,7 +53,6 @@ public class ArrayBackedStack<T extends Object> implements Stack<T> {
         return top;
     }
 
-
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();

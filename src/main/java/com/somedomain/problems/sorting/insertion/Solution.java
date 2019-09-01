@@ -43,7 +43,6 @@ public class Solution {
             e.printStackTrace();
         }
 
-
     }
 
     private static void insertionSort(int[] srcArr, int count) {

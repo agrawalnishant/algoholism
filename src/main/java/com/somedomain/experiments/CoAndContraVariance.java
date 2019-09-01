@@ -10,7 +10,6 @@ public class CoAndContraVariance {
         List<? extends Number> myNums = new ArrayList<Long>();
 
         Long lo = (Long) myNums.get(0);
-        System.out.println(lo);
     }
 
 }

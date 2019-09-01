@@ -2,7 +2,6 @@ package com.somedomain.algos;
 
 import static com.somedomain.algos.Utility.createArray;
 
-
 public class BinarySearchSample {
 
     public static void main(String[] args) {

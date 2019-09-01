@@ -1,10 +1,10 @@
 package com.somedomain.ds.dictionaries.tree;
 
-
 public class RedBlackTree extends BinarySearchTree {
 
     private Node root;
 
+    @Override
     public void insert(Node node) {
         int key = node.key();
 
@@ -171,12 +171,12 @@ public class RedBlackTree extends BinarySearchTree {
 
         System.out.println("Rotation done.");
 
-
     }
 
     /**
      * @return the root
      */
+    @Override
     public Node getRoot() {
         return root;
     }
@@ -184,6 +184,7 @@ public class RedBlackTree extends BinarySearchTree {
     /**
      * @param root the root to set
      */
+    @Override
     public void setRoot(Node root) {
         this.root = root;
     }

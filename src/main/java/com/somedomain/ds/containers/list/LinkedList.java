@@ -6,9 +6,7 @@ import lombok.Data;
 public class LinkedList<T> implements List<T> {
     private final ListNode<T> START_NODE = new ListNode<T>(null);
 
-    //private ListNode<T> headNode;
     private int currentSize;
-
 
     public LinkedList() {
         START_NODE.setNextNode(null);
@@ -19,7 +17,7 @@ public class LinkedList<T> implements List<T> {
         int responseCode = NO_HOPE;
         if (element != null) {
             ListNode<T> iteratorNode = START_NODE;
-            for (int counter = 1; counter <= currentSize; counter++) {
+            while (iteratorNode.getNextNode() != null) {
                 iteratorNode = iteratorNode.getNextNode();
             }
             iteratorNode.setNextNode(new ListNode<>(element));
@@ -27,7 +25,6 @@ public class LinkedList<T> implements List<T> {
         }
         return responseCode;
     }
-
 
     @Override
     public int insertFirst(T element) {
@@ -41,7 +38,6 @@ public class LinkedList<T> implements List<T> {
         }
         return responseCode;
     }
-
 
     @Override
     public int delete(T element) {
@@ -61,7 +57,6 @@ public class LinkedList<T> implements List<T> {
         return responseCode;
     }
 
-
     @Override
     public int deleteFirst() {
         int responseCode = NO_HOPE;
@@ -77,7 +72,6 @@ public class LinkedList<T> implements List<T> {
         }
         return responseCode;
     }
-
 
     @Override
     public T get(final int position) {
@@ -114,6 +108,7 @@ public class LinkedList<T> implements List<T> {
         currentSize = 0;
     }
 
+    @Override
     public T findElementBefore(final T element) {
         boolean foundTarget = false;
         ListNode<T> iteratorNode = null;

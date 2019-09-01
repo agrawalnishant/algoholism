@@ -13,6 +13,4 @@ public interface Stack<T> {
     Integer count();
 
 
-
-
 }

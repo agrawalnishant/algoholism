@@ -44,7 +44,6 @@ public class RandomNumber {
         return n;
     }
 
-
     public static int NumberOfSetBits(int i) {
         i = i - ((i >> 1) & 0x55555555);
         i = (i & 0x33333333) + ((i >> 2) & 0x33333333);

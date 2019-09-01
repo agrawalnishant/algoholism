@@ -7,9 +7,7 @@ public class TowerOfHanoi {
 
     private static ArrayBackedStack<Character> source = new ArrayBackedStack<Character>(Character.class, 10, "SOURCE");
     private static ArrayBackedStack<Character> intermediate = new ArrayBackedStack<Character>(Character.class, 10, "INTERMEDIATE");
-    ;
     private static ArrayBackedStack<Character> destination = new ArrayBackedStack<Character>(Character.class, 10, "DESTINATION");
-    ;
 
     public static void main(String[] args) {
         TowerOfHanoi.init();

@@ -4,8 +4,11 @@
     <option name="actions">
       <set>
         <option value="activate" />
-        <option value="reformat" />
+        <option value="activateOnBatch" />
+        <option value="organizeImports" />
+        <option value="reformatChangedCode" />
         <option value="rearrange" />
+        <option value="missingOverrideAnnotation" />
         <option value="useBlocks" />
         <option value="unnecessarySemicolon" />
       </set>

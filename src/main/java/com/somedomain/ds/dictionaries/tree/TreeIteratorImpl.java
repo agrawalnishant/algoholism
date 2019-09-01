@@ -30,7 +30,6 @@ public class TreeIteratorImpl implements TreeIterator {
                 stackOfNodes[stackPointer--] = node;
             }
 
-
             return next(node.left());
         }
 
