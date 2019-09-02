@@ -54,6 +54,16 @@ public class ArrayBackedStack<T extends Object> implements Stack<T> {
     }
 
     @Override
+    public T peek() {
+        T t = null;
+        if (!isEmpty()) {
+            t = backingArray[top - 1];
+        }
+        return t;
+
+    }
+
+    @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         for (int counter = 1; counter <= backingArray.length; counter++) {

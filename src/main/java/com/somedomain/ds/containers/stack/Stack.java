@@ -12,5 +12,7 @@ public interface Stack<T> {
 
     Integer count();
 
+    T peek();
+
 
 }

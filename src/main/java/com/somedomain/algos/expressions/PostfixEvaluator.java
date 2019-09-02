@@ -71,6 +71,4 @@ public final class PostfixEvaluator {
         }
         return result;
     }
-
-
 }
