@@ -3,14 +3,7 @@
   <component name="SaveActionSettings">
     <option name="actions">
       <set>
-        <option value="activate" />
-        <option value="activateOnBatch" />
-        <option value="organizeImports" />
-        <option value="reformatChangedCode" />
-        <option value="rearrange" />
-        <option value="missingOverrideAnnotation" />
-        <option value="useBlocks" />
-        <option value="unnecessarySemicolon" />
+        <option value="noActionIfCompileErrors" />
       </set>
     </option>
     <option name="configurationPath" value="" />
