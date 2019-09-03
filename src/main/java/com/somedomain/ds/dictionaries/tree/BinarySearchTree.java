@@ -1,93 +1,98 @@
 package com.somedomain.ds.dictionaries.tree;
 
+import com.google.common.flogger.FluentLogger;
 
 /**
  * This implementation deletes a node immediately. Can be changed to mark as
  * delete. But than all operations would have to check the status.
- * 
+ *
  * @author _root_nishi
- * 
  */
 public class BinarySearchTree extends AbstractBinarySearchTree {
+    private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
-	Node root;
-	int totalNodes;
-	int depth;
-	
-	
-	public BinarySearchTree() {
-		super();
-	}
+    Node root;
+    int totalNodes;
+    int depth;
 
-	public Node getSuccessor(Node delNode) {
+    public BinarySearchTree() {
+        super();
+    }
 
-		Node grandParent = delNode;
-		Node successor = delNode;
-		Node current = successor.right();
+    @Override
+    public Node getSuccessor(Node delNode) {
 
-		while (current != null) {
-			grandParent = successor;
-			successor = current;
-			current = current.left();
+        Node grandParent = delNode;
+        Node successor = delNode;
+        Node current = successor.right();
 
-		}
+        while (current != null) {
+            grandParent = successor;
+            successor = current;
+            current = current.left();
 
-		if (successor != delNode.right()) {
-			grandParent.setLeft(successor.right());
-			successor.setRight(delNode.right());
-		}
+        }
 
-		return successor;
-	}
+        if (successor != delNode.right()) {
+            grandParent.setLeft(successor.right());
+            successor.setRight(delNode.right());
+        }
 
-	public Node minimum() {
+        return successor;
+    }
 
-		Node next = root;
-		Node previous = root;
+    public Node minimum() {
 
-		while (next != null) {
-			previous = next;
-			next = previous.left();
-		}
+        Node next = root;
+        Node previous = root;
 
-		System.out.println("Minimum: [K:" + previous.key() + ", V:" + previous.getData() + "]");
+        while (next != null) {
+            previous = next;
+            next = previous.left();
+        }
 
-		return previous;
+        logger.atFine().log("Minimum: [K:" + previous.key() + ", V:" + previous.getData() + "]");
 
-	}
+        return previous;
 
-	public Node maximum() {
-		return null;
+    }
 
-	}
+    public Node maximum() {
+        return null;
 
-	
+    }
 
-	/**
-	 * @param root the root to set
-	 */
-	public void setRoot(Node root) {
-		this.root = root;
-	}
+    @Override
+    public Node getRoot() {
+        return root;
+    }
 
-	public Node getRoot() {
-		return root;
-	}
+    /**
+     * @param root the root to set
+     */
+    @Override
+    public void setRoot(Node root) {
+        this.root = root;
+    }
 
-	public int getTotalNodes() {
-		return totalNodes;
-	}
+    @Override
+    public int getTotalNodes() {
+        return totalNodes;
+    }
 
-	public void setTotalNodes(int totalNodes) {
-		this.totalNodes = totalNodes;
-	}
+    @Override
+    public void setTotalNodes(int totalNodes) {
+        this.totalNodes = totalNodes;
+    }
 
-	public int getDepth() {
-		return depth;
-	}
+    @Override
+    public int getDepth() {
+        return depth;
+    }
 
-	public void setDepth(int depth) {
-		this.depth = depth;
-	}
+    @Override
+    public void setDepth(int depth) {
+        this.depth = depth;
+    }
 
 }

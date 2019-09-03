@@ -1,11 +1,13 @@
 package com.somedomain.ds.dictionaries.tree;
 
+import com.google.common.flogger.FluentLogger;
 import com.somedomain.ds.containers.stack.ArrayBackedStack;
 import com.somedomain.ds.containers.stack.Stack;
 
 import java.util.Arrays;
 
 public abstract class AbstractBinarySearchTree {
+    private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
     public AbstractBinarySearchTree() {
         super();
@@ -40,7 +42,7 @@ public abstract class AbstractBinarySearchTree {
         Stack<Node> bufferStack = new ArrayBackedStack<Node>(Node.class, 1000);
         while (true) {
             while (root != null) {
-                //System.out.println(root);
+                //logger.atFine().log(root);
                 bufferStack.push(root);
                 root = root.left();
             }
@@ -49,7 +51,7 @@ public abstract class AbstractBinarySearchTree {
             }
             Node aNode = bufferStack.pop();
             if (aNode != null) {
-                System.out.println(aNode);
+                logger.atFine().log("" + aNode);
                 root = aNode.right();
             }
         }
@@ -64,10 +66,9 @@ public abstract class AbstractBinarySearchTree {
 
         setInorder(node.left(), array, 2 * pos + 1);
 
-        // System.out.println("[K:" + node.key() + ", V:" + node.getData() +
-        // "]");
+        
         array[pos] = node;
-        System.out.println("Till Now : " + Arrays.asList(array));
+        logger.atFine().log("Till Now : " + Arrays.asList(array));
 
         setInorder(node.right(), array, 2 * pos + 2);
 
@@ -79,7 +80,7 @@ public abstract class AbstractBinarySearchTree {
             return;
         }
 
-        System.out.println("[K:" + node.key() + ", V:" + node.getData() + "]");
+        logger.atFine().log("[K:" + node.key() + ", V:" + node.getData() + "]");
 
         preorder(node.left());
 
@@ -95,7 +96,7 @@ public abstract class AbstractBinarySearchTree {
 
         inorder(node.left());
 
-        System.out.println("[K:" + node.key() + ", V:" + node.getData() + "]");
+        logger.atFine().log("[K:" + node.key() + ", V:" + node.getData() + "]");
 
         inorder(node.right());
 
@@ -110,7 +111,7 @@ public abstract class AbstractBinarySearchTree {
 
         inorder(node.right());
 
-        System.out.println("[K:" + node.key() + ", V:" + node.getData() + "]");
+        logger.atFine().log("[K:" + node.key() + ", V:" + node.getData() + "]");
 
     }
 
@@ -119,17 +120,17 @@ public abstract class AbstractBinarySearchTree {
         switch (mode) {
 
             case INORDER:
-                System.out.println("\n Inorder \n");
+                logger.atFine().log("\n Inorder \n");
                 inorder(getRoot());
                 break;
 
             case PREORDER:
-                System.out.println("\n PREORDER \n");
+                logger.atFine().log("\n PREORDER \n");
                 preorder(getRoot());
                 break;
 
             case POSTORDER:
-                System.out.println("\n POSTORDER \n");
+                logger.atFine().log("\n POSTORDER \n");
                 postorder(getRoot());
                 break;
 
@@ -143,13 +144,13 @@ public abstract class AbstractBinarySearchTree {
         switch (mode) {
 
             case INORDER:
-                System.out.println("\n Inorder NonRecursive \n");
+                logger.atFine().log("\n Inorder NonRecursive \n");
                 inorderNonRecur(getRoot());
                 break;
             /*
-             * case PREORDER: System.out.println("\n PREORDER \n"); preorderNonRecur(getRoot()); break;
+             * case PREORDER: logger.atFine().log("\n PREORDER \n"); preorderNonRecur(getRoot()); break;
              *
-             * case POSTORDER: System.out.println("\n POSTORDER \n"); postorderNonRecur(getRoot()); break;
+             * case POSTORDER: logger.atFine().log("\n POSTORDER \n"); postorderNonRecur(getRoot()); break;
              */
 
             default:

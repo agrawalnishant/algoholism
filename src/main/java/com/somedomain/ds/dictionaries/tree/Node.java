@@ -2,129 +2,131 @@ package com.somedomain.ds.dictionaries.tree;
 
 /**
  * Node of a tree.
- * 
+ *
  * @author _root_nishi
- * 
  */
 public class Node {
 
-	private int key;
-	private Object data;
-	private Node leftNode;
-	private Node rightNode;
-	private Node parent;
-	private boolean isRed = true;
-	
-	private Node nextLink;
-	
-	private int level;
+    private int key;
+    private Object data;
+    private Node leftNode;
+    private Node rightNode;
+    private Node parent;
+    private boolean isRed = true;
 
-	public Node(int id, Object data, Node parent) {
-		this.key = id;
-		this.data = data;
-		this.parent = parent;
-	}
+    private Node nextLink;
 
-	public int key() {
-		return key;
-	}
+    private int level;
 
-	public void setKey(int key) {
-		this.key = key;
-	}
+    public Node(int id, Object data, Node parent) {
+        this.key = id;
+        this.data = data;
+        this.parent = parent;
+    }
 
-	public Object getData() {
-		return data;
-	}
+    public int key() {
+        return key;
+    }
 
-	public void setData(Object data) {
-		this.data = data;
-	}
+    public void setKey(int key) {
+        this.key = key;
+    }
 
-	public Node left() {
-		return leftNode;
-	}
+    public Object getData() {
+        return data;
+    }
 
-	public void setLeft(Node leftNode) {
-		this.leftNode = leftNode;
-	}
+    public void setData(Object data) {
+        this.data = data;
+    }
 
-	public Node right() {
-		return rightNode;
-	}
+    public Node left() {
+        return leftNode;
+    }
 
-	public void setRight(Node rightNode) {
-		this.rightNode = rightNode;
-	}
+    public void setLeft(Node leftNode) {
+        this.leftNode = leftNode;
+    }
 
-	public Node parent() {
-		return parent;
-	}
+    public Node right() {
+        return rightNode;
+    }
 
-	public void setParent(Node parent) {
-		this.parent = parent;
-	}
+    public void setRight(Node rightNode) {
+        this.rightNode = rightNode;
+    }
 
-	public boolean isRed() {
-		return isRed;
-	}
-	
-	public boolean isBlack() {
-		return !isRed;
-	}
+    public Node parent() {
+        return parent;
+    }
 
-	public void setRed(boolean isRed) {
-		this.isRed = isRed;
-	}
+    public void setParent(Node parent) {
+        this.parent = parent;
+    }
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + key;
-		return result;
-	}
+    public boolean isRed() {
+        return isRed;
+    }
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (!(obj instanceof Node))
-			return false;
-		Node other = (Node) obj;
-		if (key != other.key)
-			return false;
-		return true;
-	}
-	
-	
-	@Override
-	public String toString() {
-		return "" + key;
-	}
+    public void setRed(boolean isRed) {
+        this.isRed = isRed;
+    }
 
-	public int getLevel() {
-		return level;
-	}
+    public boolean isBlack() {
+        return !isRed;
+    }
 
-	public void setLevel(int level) {
-		this.level = level;
-	}
+    /* (non-Javadoc)
+     * @see java.lang.Object#hashCode()
+     */
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + key;
+        return result;
+    }
 
-	public Node getNextLink() {
-		return nextLink;
-	}
+    /* (non-Javadoc)
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!(obj instanceof Node)) {
+            return false;
+        }
+        Node other = (Node) obj;
+        if (key != other.key) {
+            return false;
+        }
+        return true;
+    }
 
-	public void setNextLink(Node nextLink) {
-		this.nextLink = nextLink;
-	}
+    @Override
+    public String toString() {
+        return "" + key;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public Node getNextLink() {
+        return nextLink;
+    }
+
+    public void setNextLink(Node nextLink) {
+        this.nextLink = nextLink;
+    }
 
 }

@@ -9,8 +9,5 @@
         <module name="algoholism" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="algoholism" target="12" />
-    </bytecodeTargetLevel>
   </component>
 </project>
