@@ -3,11 +3,13 @@
  */
 package com.somedomain.ds.tree;
 
+import com.google.common.flogger.FluentLogger;
 import com.somedomain.ds.dictionaries.tree.AbstractBinarySearchTree;
 import com.somedomain.ds.dictionaries.tree.AbstractBinarySearchTree.NonRecursiveTraversal;
 import com.somedomain.ds.dictionaries.tree.AbstractBinarySearchTree.RecursiveTraversal;
 import com.somedomain.ds.dictionaries.tree.BinarySearchTree;
 import com.somedomain.ds.dictionaries.tree.Node;
+import lombok.extern.flogger.Flogger;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -17,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  *
  */
 public class TreeTests {
+    private static final FluentLogger logger = FluentLogger.forEnclosingClass();
     public static void main(String[] args) {
         TreeTests tests = new TreeTests();
         try {
@@ -93,11 +96,11 @@ public class TreeTests {
         assertEquals(
                 AbstractBinarySearchTree.calculateDepth(tree.getRoot()), 6, "Depth should now be 6 for given data, but instead it is: " + AbstractBinarySearchTree.calculateDepth(tree.getRoot()));
 
-        System.out.println("Depth is :" + tree.getDepth());
+        logger.atFine().log("Depth is :" + tree.getDepth());
 
         Node nd = tree.getAsInorderLinkedList();
         while (nd != null) {
-            System.out.println(" - " + nd.key());
+            logger.atFine().log(" - " + nd.key());
             nd = nd.getNextLink();
         }
 

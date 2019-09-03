@@ -1,10 +1,13 @@
 package com.somedomain.ds.containers;
 
+import com.google.common.flogger.FluentLogger;
+
 import java.util.Arrays;
 
 import static com.somedomain.algos.Utility.swap;
 
 public class Heap {
+    private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
     private final int[] srcArray;
     //private int size;
@@ -24,7 +27,7 @@ public class Heap {
         int[] testArray = new int[]{8, 7, 1, 0, 12, 678, 45, 98, 11, 35};
         Heap heap = new Heap(testArray);
         heap.buildMaxHeap();
-        System.out.println("Max is: " + testArray[0] + " in " + Arrays.toString(testArray));
+        logger.atFine().log("Max is: " + testArray[0] + " in " + Arrays.toString(testArray));
 
     }
 
@@ -33,7 +36,7 @@ public class Heap {
     }
 
     public void buildMaxHeap() {
-        System.out.println("Building max heap from array: " + Arrays.toString(srcArray));
+        logger.atFine().log("Building max heap from array: " + Arrays.toString(srcArray));
         int size = srcArray.length;
         int start = (size / 2) - 1;
         for (int count = start; count >= 0; count--) {
@@ -51,7 +54,7 @@ public class Heap {
      */
     public void maxHeapify(int indexInArr) {
 
-        System.out.println("Max-heapifying array: " + Arrays.toString(srcArray) + " at pos: " + indexInArr);
+        logger.atFine().log("Max-heapifying array: " + Arrays.toString(srcArray) + " at pos: " + indexInArr);
         int leftIndex = 2 * indexInArr + 1;
         int rightIndex = 2 * indexInArr + 2;
         //    int size = srcArray.length;
@@ -80,7 +83,7 @@ public class Heap {
         }
 
         if (largest != indexInArr) {
-            System.out.println("Swapping " + srcArray[indexInArr] + " with " + srcArray[largest]);
+            logger.atFine().log("Swapping " + srcArray[indexInArr] + " with " + srcArray[largest]);
             swap(srcArray, indexInArr, largest);
             maxHeapify(largest);
         }

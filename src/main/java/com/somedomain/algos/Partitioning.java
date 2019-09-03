@@ -1,6 +1,9 @@
 package com.somedomain.algos;
 
+import com.google.common.flogger.FluentLogger;
+
 public class Partitioning {
+    private static final FluentLogger logger = FluentLogger.forEnclosingClass();
     private static int[] intArray;
 
     public static int partiionArray(int[] inputArr) {
@@ -38,7 +41,7 @@ public class Partitioning {
         //int[] input= new int[] {149,192,47,152,159,195,61,66,17,167,118,64,27,80,30,105};
         int[] input = new int[]{149, 192, 47, 152, 159, 195, 678, 112, 10, 167, 118, 64, 27, 80, 30, 175};
         Utility.print(input, "Input: ");
-        System.out.println("partition at: " + partiionArray(input));
+        logger.atFine().log("partition at: " + partiionArray(input));
         Utility.print(input, "output: ");
 
     }

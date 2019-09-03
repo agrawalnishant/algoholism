@@ -1,7 +1,11 @@
 package com.somedomain;
 
+import com.google.common.flogger.FluentLogger;
+
 public class Algoholism {
+    private static final FluentLogger logger = FluentLogger.forEnclosingClass();
+
     public static void main(String[] args) {
-        System.out.println("Welcome to Algoholism!");
+        logger.atFine().log("Welcome to Algoholism!");
     }
 }

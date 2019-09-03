@@ -1,6 +1,9 @@
 package com.somedomain.ds.dictionaries.tree;
 
+import com.google.common.flogger.FluentLogger;
+
 public class RedBlackTree extends BinarySearchTree {
+    private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
     private Node root;
 
@@ -56,18 +59,18 @@ public class RedBlackTree extends BinarySearchTree {
 
     private void reBalance(Node current) {
 
-        System.out.println("Balancing tree at current: " + current.key());
+        logger.atFine().log("Balancing tree at current: " + current.key());
         Node parent = current.parent();
 
         if (current == root) {
-            System.out.println("Current is root. Setting it as black.");
+            logger.atFine().log("Current is root. Setting it as black.");
             current.setRed(false);
             return;
         }
 
         // Re-balance only if current and parent are both red.
         if (parent.isRed()) {
-            System.out.println("Parent: " + parent.key() + " is red.");
+            logger.atFine().log("Parent: " + parent.key() + " is red.");
             Node grandParent = parent.parent();
 
             if (grandParent != null) {
@@ -82,13 +85,13 @@ public class RedBlackTree extends BinarySearchTree {
                 // uncle as BLACK, and grandparent as RED, and re-balance GP.
 
                 if (uncle != null && uncle.isRed()) {
-                    System.out.println("Uncle: " + uncle.key() + " is also red.");
+                    logger.atFine().log("Uncle: " + uncle.key() + " is also red.");
                     if (grandParent != root) {
                         grandParent.setRed(true);
                     }
                     parent.setRed(false);
                     uncle.setRed(false);
-                    System.out.println("Set GP: " + grandParent.key() + " to RED, and parent: " + parent.key() + ", and uncle: " + uncle.key() + " to BLACK.");
+                    logger.atFine().log("Set GP: " + grandParent.key() + " to RED, and parent: " + parent.key() + ", and uncle: " + uncle.key() + " to BLACK.");
                     reBalance(grandParent);
                 }
 
@@ -99,14 +102,14 @@ public class RedBlackTree extends BinarySearchTree {
                     // perform a counter-direction rotation.
 
                     if (current == parent.left() && parent == grandParent.right()) {
-                        System.out.println("Rotate Right. GP: " + grandParent.key() + " --RIGHT --> parent: " + parent.key() + "  --LEFT--> current:" + current.key());
+                        logger.atFine().log("Rotate Right. GP: " + grandParent.key() + " --RIGHT --> parent: " + parent.key() + "  --LEFT--> current:" + current.key());
                         // Rotate right
                         grandParent.setRight(current);
                         parent.setLeft(current.right());
                         current.setLeft(parent);
 
                     } else if (current == parent.right() && parent == grandParent.left()) {
-                        System.out.println("Rotate Left. GP: " + grandParent.key() + " --LEFT --> parent: " + parent.key() + "  --RIGHT--> current:" + current.key());
+                        logger.atFine().log("Rotate Left. GP: " + grandParent.key() + " --LEFT --> parent: " + parent.key() + "  --RIGHT--> current:" + current.key());
 
                         // Rotate left
                         grandParent.setLeft(current);
@@ -119,7 +122,7 @@ public class RedBlackTree extends BinarySearchTree {
                     else {
 
                         // Switch colors of parent and grand parent.
-                        System.out.println("Set parent: " + parent.key() + " as Black, and GP: " + grandParent.key() + " as Red.");
+                        logger.atFine().log("Set parent: " + parent.key() + " as Black, and GP: " + grandParent.key() + " as Red.");
                         parent.setRed(false);
                         grandParent.setRed(true);
 
@@ -130,12 +133,12 @@ public class RedBlackTree extends BinarySearchTree {
                         if (newCurrent.isRed() && newParent.isRed()) {
 
                             if (newCurrent == newParent.left() && newParent == newGrandParent.left()) {
-                                System.out.println("GP: " + newGrandParent.key() + ", LEFT: " + newParent.key() + " , RIGHT:" + newCurrent.key());
+                                logger.atFine().log("GP: " + newGrandParent.key() + ", LEFT: " + newParent.key() + " , RIGHT:" + newCurrent.key());
                                 // Rotate right at GP.
                                 newGrandParent.setLeft(newParent.right());
                                 newParent.setRight(newGrandParent);
                             } else if (newCurrent == newParent.right() && newParent == newGrandParent.right()) {
-                                System.out.println("Rotate Left. GP: " + newGrandParent.key() + " --LEFT --> parent: " + newParent.key() + "  --RIGHT--> current:" + newCurrent.key());
+                                logger.atFine().log("Rotate Left. GP: " + newGrandParent.key() + " --LEFT --> parent: " + newParent.key() + "  --RIGHT--> current:" + newCurrent.key());
 
                                 // Rotate left at GP.
                                 newGrandParent.setRight(newParent.left());
@@ -151,7 +154,7 @@ public class RedBlackTree extends BinarySearchTree {
                             // with great grand parent.
                             Node greatGrandParent = newGrandParent.parent();
                             if (greatGrandParent != null) {
-                                System.out.println("Set " + newCurrent.key() + " as child of " + newGrandParent.key());
+                                logger.atFine().log("Set " + newCurrent.key() + " as child of " + newGrandParent.key());
                                 if (greatGrandParent.left() == newGrandParent) {
                                     greatGrandParent.setLeft(newParent);
                                 } else {
@@ -169,7 +172,7 @@ public class RedBlackTree extends BinarySearchTree {
             }
         }
 
-        System.out.println("Rotation done.");
+        logger.atFine().log("Rotation done.");
 
     }
 

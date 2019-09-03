@@ -1,11 +1,14 @@
 package com.somedomain.algos;
 
+import com.google.common.flogger.FluentLogger;
 import com.somedomain.algos.sorting.InsertionSort;
 
 import java.util.Arrays;
 import java.util.Random;
 
 public class Utility {
+
+    private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
     public static int selectPivot(int[] inputArray) {
 
@@ -24,7 +27,7 @@ public class Utility {
             msg += ("Using middle element as pivot " + pivot);
 
         }
-        System.out.println(msg);
+        logger.atFine().log(msg);
         return pivot;
     }
 
@@ -42,7 +45,7 @@ public class Utility {
      * @return
      */
     private static int medianOfThree(int[] inputArray) {
-        System.out.println("Median ");
+        logger.atFine().log("Median ");
         new InsertionSort().sort(inputArray);
         return inputArray[1];
 
@@ -106,22 +109,22 @@ public class Utility {
 
     public static void main(String[] args) {
         /*
-         * int arrayLen = 50; System.out.println("Sorted:  ");
-         * System.out.println(Utility.createArray(arrayLen, true));
+         * int arrayLen = 50; logger.atFine().log("Sorted:  ");
+         * logger.atFine().log(Utility.createArray(arrayLen, true));
          *
-         * System.out.println("Not sorted: ");
-         * System.out.println(Utility.createArray(arrayLen, false));
+         * logger.atFine().log("Not sorted: ");
+         * logger.atFine().log(Utility.createArray(arrayLen, false));
          */
 
-        // System.out.println("{8,0,100} : " + selectPivot(new int[] { 8, 0, 100
+        // logger.atFine().log("{8,0,100} : " + selectPivot(new int[] { 8, 0, 100
         // }));
-        // System.out.println("8,0,100,289,17} : " + selectPivot(new int[] { 8,
+        // logger.atFine().log("8,0,100,289,17} : " + selectPivot(new int[] { 8,
         // 0, 100, 289, 17 }));
     }
 
     public static void print(int[] integerArray, String msg) {
         msg = (msg == null ? "" : msg);
-        System.out.println(msg + "\t" + Arrays.toString(integerArray));
+        logger.atFine().log(msg + "\t" + Arrays.toString(integerArray));
 
     }
 
