@@ -6,36 +6,28 @@ public class ArrayBackedStack<T extends Object> implements Stack<T> {
 
     private final T[] backingArray;
     private int top;
-    private String name;
 
     public ArrayBackedStack(Class<T> type, int size) {
-        this(type, size, "" + Double.valueOf(Math.random()).intValue());
-    }
-
-    public ArrayBackedStack(Class<T> type, int size, final String name) {
         backingArray = (T[]) newInstance(type, size);
-        this.name = name;
     }
 
     @Override
-    public void push(T t) {
+    public void push(T element) {
         if (!isFull()) {
-            backingArray[top] = t;
+            backingArray[top] = element;
             top = top + 1;
         }
-
     }
 
     @Override
     public T pop() {
-        T t = null;
+        T element = null;
         if (!isEmpty()) {
-            t = backingArray[top - 1];
+            element = backingArray[top - 1];
             backingArray[top - 1] = null;
             top = top - 1;
         }
-
-        return t;
+        return element;
     }
 
     @Override
@@ -55,12 +47,11 @@ public class ArrayBackedStack<T extends Object> implements Stack<T> {
 
     @Override
     public T peek() {
-        T t = null;
+        T element = null;
         if (!isEmpty()) {
-            t = backingArray[top - 1];
+            element = backingArray[top - 1];
         }
-        return t;
-
+        return element;
     }
 
     @Override
@@ -69,7 +60,6 @@ public class ArrayBackedStack<T extends Object> implements Stack<T> {
         for (int counter = 1; counter <= backingArray.length; counter++) {
             stringBuilder.append("," + backingArray[counter - 1]);
         }
-
         return stringBuilder.toString();
     }
 

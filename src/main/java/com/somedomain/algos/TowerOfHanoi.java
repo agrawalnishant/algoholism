@@ -5,9 +5,9 @@ import com.somedomain.ds.containers.stack.ArrayBackedStack;
 public class TowerOfHanoi {
     private static int moveCounter;
 
-    private static ArrayBackedStack<Character> source = new ArrayBackedStack<Character>(Character.class, 10, "SOURCE");
-    private static ArrayBackedStack<Character> intermediate = new ArrayBackedStack<Character>(Character.class, 10, "INTERMEDIATE");
-    private static ArrayBackedStack<Character> destination = new ArrayBackedStack<Character>(Character.class, 10, "DESTINATION");
+    private static ArrayBackedStack<Character> source = new ArrayBackedStack<Character>(Character.class, 10);
+    private static ArrayBackedStack<Character> intermediate = new ArrayBackedStack<Character>(Character.class, 10);
+    private static ArrayBackedStack<Character> destination = new ArrayBackedStack<Character>(Character.class, 10);
 
     public static void main(String[] args) {
         TowerOfHanoi.init();

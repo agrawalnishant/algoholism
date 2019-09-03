@@ -22,6 +22,7 @@ public class StackTest {
         integerStack.push(2);
         integerStack.push(3);
         integerStack.push(4);
+        System.out.println("############# " + integerStack + " #############");
         assertEquals(",1,2,3,4,null", integerStack.toString(), "Stack has these elements:" + integerStack.toString());
     }
 

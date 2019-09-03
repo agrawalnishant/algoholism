@@ -44,14 +44,17 @@ public class LinkedList<T> implements List<T> {
         int responseCode = NO_HOPE;
         if (currentSize > 0 && element != null) {
             ListNode<T> iteratorNode = START_NODE;
-            while (iteratorNode.getNextNode() != null) {
-                if (iteratorNode.getNextNode().getElement() == element) {
-                    iteratorNode.setNextNode(iteratorNode.getNextNode().getNextNode());
-                    --currentSize;
-                    break;
-                } else {
+            boolean foundElementToBeDeleted = false;
+            while (iteratorNode.getNextNode() != null && foundElementToBeDeleted == false) {
+                System.out.println("iteratorNode: " + iteratorNode);
+                foundElementToBeDeleted = (element == iteratorNode.getNextNode().getElement());
+                if (foundElementToBeDeleted == false) {
                     iteratorNode = iteratorNode.getNextNode();
                 }
+            }
+            if (foundElementToBeDeleted == true) {
+                iteratorNode.setNextNode(iteratorNode.getNextNode().getNextNode());
+                --currentSize;
             }
         }
         return responseCode;
