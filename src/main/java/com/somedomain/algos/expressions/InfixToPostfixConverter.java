@@ -1,19 +1,14 @@
 package com.somedomain.algos.expressions;
 
 import com.somedomain.ds.containers.stack.ArrayBackedStack;
-import com.google.common.flogger.FluentLogger;
-
-import java.util.Arrays;
 
 public class InfixToPostfixConverter {
-    //private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
     public static String convertToPostfix(final String infixExpression, final char delimiter) {
         StringBuilder targetPostfixExpression = new StringBuilder("");
 
         if (infixExpression != null && infixExpression.length() > 3) {
             String[] tokens = infixExpression.trim().split(String.valueOf(delimiter));
-            //logger.atFinest().log("Received Tokens: %s", Arrays.asList(tokens));
             int numberOfTokens = tokens.length;
             ArrayBackedStack<String> operandStack = new ArrayBackedStack<>(String.class, numberOfTokens);
             int tokenPointer = 0;

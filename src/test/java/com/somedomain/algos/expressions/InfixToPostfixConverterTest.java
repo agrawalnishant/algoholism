@@ -11,6 +11,7 @@ class InfixToPostfixConverterTest {
     private String infixExpression;
     private char delimiter;
 
+
     @BeforeEach
     void setUp() {
         infixExpression = "36 / ( 4 + ( 7 - 3 ) * 2 )";
