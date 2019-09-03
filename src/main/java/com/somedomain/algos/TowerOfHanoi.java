@@ -1,8 +1,10 @@
 package com.somedomain.algos;
 
+import com.google.common.flogger.FluentLogger;
 import com.somedomain.ds.containers.stack.ArrayBackedStack;
 
 public class TowerOfHanoi {
+    private static final FluentLogger logger = FluentLogger.forEnclosingClass();
     private static int moveCounter;
 
     private static ArrayBackedStack<Character> source = new ArrayBackedStack<Character>(Character.class, 10);
@@ -30,7 +32,7 @@ public class TowerOfHanoi {
     }
 
     private static void showTotalMoves() {
-        System.out.println("Total moves: " + moveCounter);
+        logger.atFine().log("Total moves: " + moveCounter);
     }
 
     private static void move(int top, ArrayBackedStack<Character> source, ArrayBackedStack<Character> intermediate, ArrayBackedStack<Character> destination) {

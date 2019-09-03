@@ -1,5 +1,7 @@
 package com.somedomain.ds.dictionaries.tree;
 
+import com.google.common.flogger.FluentLogger;
+
 /**
  * This implementation deletes a node immediately. Can be changed to mark as
  * delete. But than all operations would have to check the status.
@@ -7,6 +9,7 @@ package com.somedomain.ds.dictionaries.tree;
  * @author _root_nishi
  */
 public class BinarySearchTree extends AbstractBinarySearchTree {
+    private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
     Node root;
     int totalNodes;
@@ -48,7 +51,7 @@ public class BinarySearchTree extends AbstractBinarySearchTree {
             next = previous.left();
         }
 
-        System.out.println("Minimum: [K:" + previous.key() + ", V:" + previous.getData() + "]");
+        logger.atFine().log("Minimum: [K:" + previous.key() + ", V:" + previous.getData() + "]");
 
         return previous;
 

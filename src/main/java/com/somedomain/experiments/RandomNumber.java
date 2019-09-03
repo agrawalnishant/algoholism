@@ -1,20 +1,23 @@
 package com.somedomain.experiments;
 
+import com.google.common.flogger.FluentLogger;
+
 public class RandomNumber {
+    private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
     public static void main(String[] args) {
         int value = new Double(Math.pow(2, 31)).intValue() - new Double(Math.pow(2, 30)).intValue();
-        System.out.println(0xFF000000);
-        System.out.println(Long.toBinaryString(231));
-        System.out.println(Long.toBinaryString(value >>> 16));
-        System.out.println(Long.toBinaryString(value & 0xFF00FF00));
-        System.out.println(Long.toBinaryString(value & 0xF0F0F0F0));
-        System.out.println(Long.toBinaryString(value & 0xCCCCCCCC));
-        System.out.println(Long.toBinaryString(value & 0xAAAAAAAA));
+        logger.atFine().log("" + 0xFF000000);
+        logger.atFine().log(Long.toBinaryString(231));
+        logger.atFine().log(Long.toBinaryString(value >>> 16));
+        logger.atFine().log(Long.toBinaryString(value & 0xFF00FF00));
+        logger.atFine().log(Long.toBinaryString(value & 0xF0F0F0F0));
+        logger.atFine().log(Long.toBinaryString(value & 0xCCCCCCCC));
+        logger.atFine().log(Long.toBinaryString(value & 0xAAAAAAAA));
 
-        System.out.println(32 - RandomNumber.numberOfLeadingZeros(value));
+        logger.atFine().log("%s", (32 - RandomNumber.numberOfLeadingZeros(value)));
 
-        System.out.println(RandomNumber.NumberOfSetBits(new Double(Math.pow(2, 4)).intValue() + 1));
+        logger.atFine().log("%s", RandomNumber.NumberOfSetBits(new Double(Math.pow(2, 4)).intValue() + 1));
 
     }
 
