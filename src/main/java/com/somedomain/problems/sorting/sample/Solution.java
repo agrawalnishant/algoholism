@@ -1,7 +1,5 @@
 package com.somedomain.problems.sorting.sample;
 
-import com.google.common.flogger.FluentLogger;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,7 +7,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Solution {
-    private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
     private static final String REGEX = "\\d+";
 
@@ -43,7 +40,7 @@ public class Solution {
             while (--count >= 0) {
                 if (strArr[count].equals("" + targetNum)) {
 
-                    logger.atFine().log("%s",count);
+                    System.out.println(count);
                     break;
                 }
 

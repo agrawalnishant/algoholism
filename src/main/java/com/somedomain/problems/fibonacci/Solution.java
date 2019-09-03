@@ -1,7 +1,5 @@
 package com.somedomain.problems.fibonacci;
 
-import com.google.common.flogger.FluentLogger;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -13,7 +11,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Solution {
-    private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
     private static final String REGEX = "\\d+";
 
@@ -62,7 +59,7 @@ public class Solution {
 
         for (Long num : numbers) {
 
-            logger.atFine().log(isFibonacci(num));
+            System.out.println(isFibonacci(num));
 
         }
 
@@ -74,7 +71,7 @@ public class Solution {
         BigDecimal firstSquare = BigDecimal.valueOf(5).multiply(BigDecimal.valueOf(num)).multiply(BigDecimal.valueOf(num)).subtract(BigDecimal.valueOf(4));
 
         Double sqrt = bigSqrt(firstSquare).doubleValue();
-        //logger.atFine().log("SQRT of " + firstSquare + " is " + sqrt.doubleValue());
+        //System.out.println("SQRT of " + firstSquare + " is " + sqrt.doubleValue());
         if (Math.abs(sqrt - sqrt.longValue()) == 0.0d) {
             return "IsFibo";
         } else {
@@ -82,7 +79,7 @@ public class Solution {
             BigDecimal secondSquare = BigDecimal.valueOf(5).multiply(BigDecimal.valueOf(num)).multiply(BigDecimal.valueOf(num)).add(BigDecimal.valueOf(4));
             sqrt = bigSqrt(secondSquare).doubleValue();
 
-            //logger.atFine().log("SQRT of " + secondSquare + " is " + sqrt.doubleValue());
+            //System.out.println("SQRT of " + secondSquare + " is " + sqrt.doubleValue());
             if (Math.abs(sqrt - sqrt.longValue()) == 0.0d) {
                 return "IsFibo";
             }
@@ -95,7 +92,7 @@ public class Solution {
     }
 
     private static BigDecimal sqrtNewtonRaphson(BigDecimal c, BigDecimal xn, BigDecimal precision) {
-        //logger.atFine().log("c: " + c + ",xn: " + xn + ", precision: " + precision);
+        //System.out.println("c: " + c + ",xn: " + xn + ", precision: " + precision);
         BigDecimal fx = xn.pow(2).add(c.negate());
         BigDecimal fpx = xn.multiply(new BigDecimal(2));
         BigDecimal xn1 = fx.divide(fpx, 2 * SQRT_DIG.intValue(), RoundingMode.HALF_UP);

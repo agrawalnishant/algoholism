@@ -1,9 +1,6 @@
 package com.somedomain.ds.containers.queue;
 
-import com.google.common.flogger.FluentLogger;
-
 public class CircularIntQueue {
-    private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
     private int[] qArr;
     private int qLen;
@@ -56,7 +53,7 @@ public class CircularIntQueue {
 
     public String display() {
         String qContents = "";
-        logger.atFine().log("\nHead:" + head + ",tail: " + tail + ", qLength: " + qLen);
+        System.out.println("\nHead:" + head + ",tail: " + tail + ", qLength: " + qLen);
         int tmpQLen = qLen;
         int pos = head;
 
@@ -70,7 +67,7 @@ public class CircularIntQueue {
                 pos = 0;
             }
         }
-        logger.atFine().log(qContents);
+        System.out.println(qContents);
         return qContents;
 
     }

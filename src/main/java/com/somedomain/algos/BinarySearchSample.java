@@ -1,11 +1,8 @@
 package com.somedomain.algos;
 
-import com.google.common.flogger.FluentLogger;
-
 import static com.somedomain.algos.Utility.createArray;
 
 public class BinarySearchSample {
-    private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
     public static void main(String[] args) {
         BinarySearchSample sample = new BinarySearchSample();
@@ -15,15 +12,15 @@ public class BinarySearchSample {
         int randomIndex = new Double(Math.random() * (1.0 * arrayLength)).intValue();
         int targetNum = integerArray[randomIndex];
 
-        logger.atFine().log("target pos: " + randomIndex + ", num: " + targetNum);
+        System.out.println("target pos: " + randomIndex + ", num: " + targetNum);
 
-        logger.atFine().log("searched pos: " + sample.binSearch(integerArray, targetNum, 0, arrayLength - 1));
+        System.out.println("searched pos: " + sample.binSearch(integerArray, targetNum, 0, arrayLength - 1));
 
     }
 
     public int binSearch(int[] inputArray, int num, int startPos, int endPos) {
 
-        logger.atFine().log("Num: " + num + ", start: " + startPos + ", end: " + endPos);
+        System.out.println("Num: " + num + ", start: " + startPos + ", end: " + endPos);
         int midpos = (startPos + endPos) / 2;
 
         int start = inputArray[startPos];
@@ -40,7 +37,7 @@ public class BinarySearchSample {
             return midpos;
         }
 
-        logger.atFine().log("Mid: " + midpos + ", Num at mid: " + mid);
+        System.out.println("Mid: " + midpos + ", Num at mid: " + mid);
 
         if (num < mid) {
             return binSearch(inputArray, num, startPos, midpos);

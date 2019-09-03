@@ -20,7 +20,7 @@ public class SelectionSort implements SortingAlgo {
                 }
 
             }
-            // logger.atFine().log("Swapping sourceArray[" + outCounter + "] = "
+            // System.out.println("Swapping sourceArray[" + outCounter + "] = "
             // + sourceArray[outCounter] + " and sourceArray[" + minPos + "] = "
             // + sourceArray[minPos]);
 

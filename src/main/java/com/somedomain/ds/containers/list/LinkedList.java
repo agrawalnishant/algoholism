@@ -1,22 +1,15 @@
 package com.somedomain.ds.containers.list;
 
-import com.google.common.flogger.FluentLogger;
 import lombok.Data;
 
 @Data
 public class LinkedList<T> implements List<T> {
-    private static final FluentLogger logger = FluentLogger.forEnclosingClass();
     private final ListNode<T> START_NODE = new ListNode<T>(null);
 
     private int currentSize;
 
     public LinkedList() {
         START_NODE.setNextNode(null);
-        logger.atFinest().log("LinkList : StartNode Created.");
-    }
-
-    public static void main(String[] args) {
-        LinkedList<String> linkedList = new LinkedList<>();
     }
 
     @Override
@@ -51,16 +44,14 @@ public class LinkedList<T> implements List<T> {
         int responseCode = NO_HOPE;
         if (currentSize > 0 && element != null) {
             ListNode<T> iteratorNode = START_NODE;
-            boolean foundElementToBeDeleted = false;
-            while (iteratorNode.getNextNode() != null && foundElementToBeDeleted == false) {
-                foundElementToBeDeleted = (element == iteratorNode.getNextNode().getElement());
-                if (foundElementToBeDeleted == false) {
+            while (iteratorNode.getNextNode() != null) {
+                if (iteratorNode.getNextNode().getElement() == element) {
+                    iteratorNode.setNextNode(iteratorNode.getNextNode().getNextNode());
+                    --currentSize;
+                    break;
+                } else {
                     iteratorNode = iteratorNode.getNextNode();
                 }
-            }
-            if (foundElementToBeDeleted == true) {
-                iteratorNode.setNextNode(iteratorNode.getNextNode().getNextNode());
-                --currentSize;
             }
         }
         return responseCode;

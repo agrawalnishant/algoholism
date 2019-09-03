@@ -1,16 +1,8 @@
 package com.somedomain.algos.expressions;
 
-import com.google.common.flogger.FluentLogger;
 import com.somedomain.ds.containers.stack.ArrayBackedStack;
 
 public class InfixToPostfixConverter {
-
-    private static final FluentLogger logger = FluentLogger.forEnclosingClass();
-    public static void main(String[] args) {
-        logger.atFinest().log("*** ###### Hello World!   #####  ****");
-
-    }
-
 
     public static String convertToPostfix(final String infixExpression, final char delimiter) {
         StringBuilder targetPostfixExpression = new StringBuilder("");

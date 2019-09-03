@@ -1,9 +1,6 @@
 package com.somedomain.algos;
 
-import com.google.common.flogger.FluentLogger;
-
 public class AnagramPermutations {
-    private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
     private char[] charArray;
     private int length;
@@ -24,7 +21,7 @@ public class AnagramPermutations {
 
             return;
         }
-        logger.atFine().log("");
+        System.out.println("");
         for (int rotationCounter = 0; rotationCounter < newLen; rotationCounter++) {
             doAnagrams(newLen - 1);
 

@@ -1,7 +1,5 @@
 package com.somedomain.problems.utopiantree;
 
-import com.google.common.flogger.FluentLogger;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,7 +9,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Solution {
-    private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
     private static final String REGEX = "\\d+";
 
@@ -54,12 +51,12 @@ public class Solution {
             e.printStackTrace();
         }
         boolean isMonsoon = true;
-        //logger.atFine().log(numbers);
+        //System.out.println(numbers);
 
         for (Integer cycle : numbers) {
             length = 1;
             isMonsoon = true;
-            //logger.atFine().log("cycle: " + cycle);
+            //System.out.println("cycle: " + cycle);
 
             int growthCycle = cycle;
             while (growthCycle-- > 0) {
@@ -72,7 +69,7 @@ public class Solution {
                 isMonsoon = !isMonsoon;
             }
 
-            logger.atFine().log("%s", length);
+            System.out.println(length);
 
         }
 

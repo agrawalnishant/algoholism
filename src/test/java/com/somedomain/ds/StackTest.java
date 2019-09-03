@@ -1,6 +1,5 @@
 package com.somedomain.ds;
 
-import com.google.common.flogger.FluentLogger;
 import com.somedomain.ds.containers.stack.ArrayBackedStack;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class StackTest {
-    private static final FluentLogger logger = FluentLogger.forEnclosingClass();
+
     private ArrayBackedStack integerStack;
 
     @BeforeEach
@@ -23,7 +22,6 @@ public class StackTest {
         integerStack.push(2);
         integerStack.push(3);
         integerStack.push(4);
-        logger.atFine().log("############# " + integerStack + " #############");
         assertEquals(",1,2,3,4,null", integerStack.toString(), "Stack has these elements:" + integerStack.toString());
     }
 
