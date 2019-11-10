@@ -3,15 +3,8 @@ package com.somedomain.problems.string;
 import com.google.common.flogger.FluentLogger;
 
 public class ReverseString {
-    private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
-    private static final String TEST_STRING_REPEAT = "ABCDEFABC";
-
-    public static void main(String[] args) {
-        logger.atFinest().log(TEST_STRING_REPEAT + " : reversed : " + reverseInplace(TEST_STRING_REPEAT));
-    }
-
-    private static String reverseInplace(final String sourceString) {
+    public String reverseInplace(final String sourceString) {
         if (sourceString == null || sourceString.length() <= 1)
             return sourceString;
         char[] sourceStringChars = sourceString.toCharArray();
