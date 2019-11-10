@@ -5,30 +5,30 @@ import com.google.common.flogger.FluentLogger;
 public class Anagram {
     private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
-    private static final String TEST_STRING_UNIQ = "ABCDEF";
-    private static final String TEST_STRING_PERMUTATION_OF_UNIQ = "ABEDC";
-
-    public static void main(String[] args) {
-        logger.atFinest().log("Is " + "ABCBDEF" + " permutation of " + "ABCDEFB" + " : "
-                + arePermutations(TEST_STRING_UNIQ, TEST_STRING_PERMUTATION_OF_UNIQ));
-    }
-
-    private static boolean arePermutations(final String sourceString, final String targetString) {
-        if (sourceString == targetString) {
+    public boolean areAnagrams(final String sourceString, final String testString) {
+        logger.atFinest().log("Source String: " + sourceString + ", test String: " + testString);
+        if (sourceString == testString) {
             return true;
         }
-        if (null != targetString && null != sourceString && sourceString.equals(targetString)) {
+        if (null != testString && null != sourceString && sourceString.equals(testString)) {
             return true;
         }
         int charsetSize = 256;
 
-        int lengthOfSource = sourceString.length();
         int[] sourceDistri = new int[charsetSize];
         for (int c : sourceString.toCharArray()) {
             sourceDistri[c]++;
         }
-        for (char c : targetString.toCharArray()) {
+        for (char c : testString.toCharArray()) {
             if (sourceDistri[c]-- <= 0) {
+                logger.atFinest().log("Anomaly[Less char in source ] \t: Char: " + ((char) (c )));
+
+                return false;
+            }
+        }
+        for (int sourceIndex = 0; sourceIndex < sourceDistri.length; sourceIndex++) {
+            if (sourceDistri[sourceIndex] != 0) {
+                logger.atFinest().log("Anomaly[Excess in source ]: Char: " + ((char) (sourceIndex)));
                 return false;
             }
         }
