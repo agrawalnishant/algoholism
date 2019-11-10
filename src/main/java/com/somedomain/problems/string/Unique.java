@@ -4,17 +4,7 @@ import com.google.common.flogger.FluentLogger;
 
 public class Unique {
 
-    private static final FluentLogger logger = FluentLogger.forEnclosingClass();
-
-    private static final String TEST_STRING_UNIQ = "ABCDEF";
-    private static final String TEST_STRING_REPEAT = "ABCDEFABC";
-
-    public static void main(String[] args) {
-        logger.atFinest().log(TEST_STRING_REPEAT + " has uniq?: " + hasAllUniqueChars(TEST_STRING_REPEAT));
-        logger.atFinest().log(TEST_STRING_UNIQ + " has uniq?: " + hasAllUniqueChars(TEST_STRING_UNIQ));
-    }
-
-    private static boolean hasAllUniqueChars(final String inputString) {
+    public boolean hasAllUniqueChars(final String inputString) {
         boolean hasAllUnique = false;
         if (inputString == null || inputString.length() <= 0) {
             return hasAllUnique;
