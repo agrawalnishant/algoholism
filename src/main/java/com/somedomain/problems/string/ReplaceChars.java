@@ -6,7 +6,6 @@ public class ReplaceChars {
 
     private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
-
     public void replaceAll(final char[] inputString, final char toBeReplaced, final char[] replacement, final int trueLength) {
         logger.atFinest().log("inputString: " + new String(inputString));
         int numToBeReplaced = -1;
