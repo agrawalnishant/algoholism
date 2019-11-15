@@ -2,7 +2,7 @@ package com.somedomain.problems.arrays.and.string;
 
 import com.google.common.flogger.FluentLogger;
 
-public class Unique {
+public class UniqueChars {
 
     public boolean hasAllUniqueChars(final String inputString) {
         boolean hasAllUnique = false;
