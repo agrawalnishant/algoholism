@@ -1,37 +1,26 @@
 package com.somedomain.problems.arrays.and.string;
 
+import com.google.common.flogger.FluentLogger;
+
 public class RotateMatrix {
+    private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
     public void rotateMatrixClockwise(final int[][] sourceMatrix) {
         int edgeLen = sourceMatrix.length;
         int tmpValueSrc = sourceMatrix[0][0];
         for (int rowCount = 0; rowCount <= (edgeLen - 1) / 2; rowCount++) {
             for (int colCounter = rowCount; colCounter < edgeLen - rowCount - 1; colCounter++) {
-                System.out.println("(rowCount, colCounter): ( " + rowCount + ", " + colCounter + ")");
-                int[] sourceXY = {rowCount, colCounter};
+                logger.atFinest().log("(rowCount, colCounter): ( " + rowCount + ", " + colCounter + ")");
+                int[] targetXY = {rowCount, colCounter};
                 tmpValueSrc = sourceMatrix[rowCount][colCounter];
-                int[] targetXY = findTargetRowColCoords(sourceXY, edgeLen);
-                int tmpValueTar = sourceMatrix[targetXY[0]][targetXY[1]];
-                sourceMatrix[targetXY[0]][targetXY[1]] = tmpValueSrc;
-                tmpValueSrc = tmpValueTar;
-
-                targetXY = findTargetRowColCoords(targetXY, edgeLen);
-                tmpValueTar = sourceMatrix[targetXY[0]][targetXY[1]];
-                sourceMatrix[targetXY[0]][targetXY[1]] = tmpValueSrc;
-                tmpValueSrc = tmpValueTar;
-
-                targetXY = findTargetRowColCoords(targetXY, edgeLen);
-                tmpValueTar = sourceMatrix[targetXY[0]][targetXY[1]];
-                sourceMatrix[targetXY[0]][targetXY[1]] = tmpValueSrc;
-                tmpValueSrc = tmpValueTar;
-
-                targetXY = findTargetRowColCoords(targetXY, edgeLen);
-                tmpValueTar = sourceMatrix[targetXY[0]][targetXY[1]];
-                sourceMatrix[targetXY[0]][targetXY[1]] = tmpValueSrc;
-                tmpValueSrc = tmpValueTar;
+                for (int rotation = 0; rotation < 4; rotation++) {
+                    targetXY = findTargetRowColCoords(targetXY, edgeLen);
+                    int tmpValueTar = sourceMatrix[targetXY[0]][targetXY[1]];
+                    sourceMatrix[targetXY[0]][targetXY[1]] = tmpValueSrc;
+                    tmpValueSrc = tmpValueTar;
+                }
 
             }
-
         }
 
     }
