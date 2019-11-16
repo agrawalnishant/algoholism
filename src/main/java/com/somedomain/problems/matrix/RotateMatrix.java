@@ -1,4 +1,4 @@
-package com.somedomain.problems.arrays.and.string;
+package com.somedomain.problems.matrix;
 
 import com.google.common.flogger.FluentLogger;
 
