@@ -1,5 +1,6 @@
 package com.somedomain.problems.arrays.and.string;
 
+import com.somedomain.comparators.IntegerMatrix2DComparator;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,25 +13,8 @@ class RotateMatrixTest {
         int[][] expectedMatrix = {{13, 9, 5, 1}, {14, 10, 6, 2}, {15, 11, 7, 3}, {16, 12, 8, 4}};
         RotateMatrix rotateMatrix = new RotateMatrix();
         rotateMatrix.rotateMatrixClockwise(sourceMatrix);
-        assertTrue(compareMatrices(expectedMatrix, sourceMatrix), () -> "Rotated Matrix should be " + print2D(expectedMatrix))
+        assertTrue(new IntegerMatrix2DComparator().compare(expectedMatrix, sourceMatrix) == 0, () -> "Rotated Matrix should be " + print2D(expectedMatrix))
         ;
-
-    }
-
-    private static boolean compareMatrices(int[][] matrixOne, int[][] matrixTwo) {
-
-        boolean result = false;
-        if (matrixOne.length == matrixTwo.length && matrixOne[0].length == matrixTwo[0].length) {
-            result = true;
-            for (int row = 0; result == true && row < matrixOne.length; row++) {
-                for (int col = 0; result == true && col < matrixOne[0].length; col++) {
-                    if (matrixOne[row][col] != matrixTwo[row][col]) {
-                        result = false;
-                    }
-                }
-            }
-        }
-        return result;
 
     }
 
