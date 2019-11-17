@@ -4,7 +4,7 @@ import com.somedomain.comparators.IntegerMatrix2DComparator;
 import com.somedomain.printers.PrintUtility;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class RotateMatrixTest {
 
@@ -15,7 +15,7 @@ class RotateMatrixTest {
         RotateMatrix rotateMatrix = new RotateMatrix();
         rotateMatrix.rotateMatrixClockwise(sourceMatrix);
         assertTrue(new IntegerMatrix2DComparator().compare(expectedMatrix, sourceMatrix) == 0, () -> "Rotated Matrix should be " + PrintUtility.print2D(expectedMatrix));
-
     }
 
 }
+

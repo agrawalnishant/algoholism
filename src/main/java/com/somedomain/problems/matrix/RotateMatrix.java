@@ -19,7 +19,6 @@ public class RotateMatrix {
                     sourceMatrix[targetXY[0]][targetXY[1]] = tmpValueSrc;
                     tmpValueSrc = tmpValueTar;
                 }
-
             }
         }
 
@@ -29,8 +28,7 @@ public class RotateMatrix {
         int[] resultingRowColCoords = new int[2];
         resultingRowColCoords[0] = coordsXY[1];
         resultingRowColCoords[1] = rowMax - coordsXY[0] - 1;
-
-        System.out.println("Target for (" + coordsXY[0] + "," + coordsXY[1] + ") is : (" + resultingRowColCoords[0] + "," + resultingRowColCoords[1] + ")");
+        logger.atFinest().log("Target for (" + coordsXY[0] + "," + coordsXY[1] + ") is : (" + resultingRowColCoords[0] + "," + resultingRowColCoords[1] + ")");
         return resultingRowColCoords;
 
     }
