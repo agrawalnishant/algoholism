@@ -21,6 +21,7 @@ public class ResetRowsColsConditionally {
                     hasOccu = true;
                 }
             }
+
             if (hasOccu == true) {
                 occurRows[row] = true;
                 hasOccu = false;
