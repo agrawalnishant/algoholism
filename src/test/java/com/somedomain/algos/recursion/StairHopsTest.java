@@ -15,8 +15,9 @@ class StairHopsTest {
             "3 , 4"
     })
     void waysToClimbStairs(String steps, String expectedWays) {
-        int result = StairHops.waysToClimbStairsInHopsOfOneTwoThree(Integer.valueOf(steps));
-        assertEquals(Integer.valueOf(expectedWays), result, "Expected ways to be : " + Integer.valueOf(expectedWays) + " but was: " + result);
+
+        long result = new StairHops().waysToClimbSteps(Integer.valueOf(steps));
+        assertEquals(Long.valueOf(expectedWays), result, "Expected ways to be : " + Integer.valueOf(expectedWays) + " but was: " + result);
 
     }
 }
