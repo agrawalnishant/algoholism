@@ -25,7 +25,10 @@ class BinaryMinHeapTest {
         heap.insert(new Integer(3));
         heap.insert(4);
         heap.insert(2);
+        heap.insert(6);
         heap.insert(1);
+        heap.insert(8);
+        heap.insert(9);
         heap.showAll();
         List<Integer> heapedList = heap.getHeap();
         assertTrue(heapedList.get(0) == 1);
@@ -33,6 +36,23 @@ class BinaryMinHeapTest {
     }
 
     @Test
-    void getListOfElements() {
+    void getNextAndHeapify() {
+        heap.insert(new Integer(3));
+        heap.insert(4);
+        heap.insert(2);
+        heap.insert(6);
+        heap.insert(1);
+        heap.insert(8);
+        heap.insert(9);
+        heap.showAll();
+        Integer next = heap.getNextAndHeapify();
+        List<Integer> heapedList = heap.getHeap();
+        heap.showAll();
+        assertTrue(heapedList.get(0) == 2);
+        next = heap.getNextAndHeapify();
+        heapedList = heap.getHeap();
+        heap.showAll();
+        assertTrue(heapedList.get(0) == 3);
+
     }
 }

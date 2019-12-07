@@ -6,9 +6,8 @@ public interface Heap<T> {
 
     int insert(final T t);
 
-    T getNext();
+    T getNextAndHeapify();
 
-    void heapify();
 
     void showAll();
 

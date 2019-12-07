@@ -17,19 +17,21 @@ public class BinaryMinHeap<T> implements Heap<T> {
     Comparator<T> comparator;
     Integer limit;
     Integer currentSize = 0;
-    AtomicInteger numOps;
+    AtomicInteger numOpsInsert;
+    AtomicInteger numOpsSearch;
 
     public BinaryMinHeap(Class<T> type, final Integer limit, final Comparator<T> comparator) {
         this.limit = limit;
         this.comparator = comparator;
         listOfElements = (T[]) Array.newInstance(type, limit);
-        numOps = new AtomicInteger();
+        numOpsInsert = new AtomicInteger();
+        numOpsSearch = new AtomicInteger();
     }
 
     @Override
     public int insert(final T t) {
         listOfElements[currentSize] = t;
-        numOps.getAndIncrement();
+        numOpsInsert.getAndIncrement();
         if (currentSize != 0) {
             bubbleUp(currentSize);
         }
@@ -45,25 +47,43 @@ public class BinaryMinHeap<T> implements Heap<T> {
             T parent = listOfElements[((position - 1) / 2)];
             if (comparator.compare(current, parent) < 0) {
                 swapPositions(position, ((position - 1) / 2));
+                numOpsInsert.getAndIncrement();
                 bubbleUp(((position - 1) / 2));
             }
         }
     }
 
     private void swapPositions(final int currentPos, final int parentPos) {
-        numOps.getAndIncrement();
         T tmp = listOfElements[parentPos];
         listOfElements[parentPos] = listOfElements[currentPos];
         listOfElements[currentPos] = tmp;
     }
 
     @Override
-    public T getNext() {
-        return null;
+    public T getNextAndHeapify() {
+        T min = listOfElements[0];
+        listOfElements[0] = listOfElements[currentSize - 1];
+        listOfElements[currentSize - 1] = null;
+        --currentSize;
+        numOpsSearch.getAndIncrement();
+        bubbleDown(0);
+        return min;
     }
 
-    @Override
-    public void heapify() {
+    public void bubbleDown(final int currentPosition) {
+        int minIndex = currentPosition;
+        for (int counter = currentPosition + 1; counter < currentSize; counter++) {
+            T minElement = listOfElements[minIndex];
+            T nextElement = listOfElements[counter];
+            if (nextElement != null && comparator.compare(minElement, nextElement) > 0) {
+                minIndex = counter;
+            }
+        }
+        if (minIndex != currentPosition) {
+            numOpsSearch.getAndIncrement();
+            swapPositions(currentPosition, minIndex);
+            bubbleDown(minIndex);
+        }
 
     }
 
