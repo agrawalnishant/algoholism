@@ -43,7 +43,7 @@ class BinaryMinHeapTest {
         heap.insert(6);
         heap.insert(1);
         heap.insert(8);
-        heap.insert(9);
+
         heap.showAll();
         Integer next = heap.getNextAndHeapify();
         List<Integer> heapedList = heap.getHeap();
@@ -52,7 +52,12 @@ class BinaryMinHeapTest {
         next = heap.getNextAndHeapify();
         heapedList = heap.getHeap();
         heap.showAll();
-        assertTrue(heapedList.get(0) == 3);
+        logger.atFinest().log("Num Search Ops: " + heap.getNumOpsSearch());
+        heap.insert(9);
+        next = heap.getNextAndHeapify();
+        heap.showAll();
+        assertTrue(heapedList.get(0) == 4);
+        logger.atFinest().log("Num Search Ops: " + heap.getNumOpsSearch());
 
     }
 }

@@ -17,6 +17,17 @@ public class BinaryMinHeap<T> implements Heap<T> {
     Comparator<T> comparator;
     Integer limit;
     Integer currentSize = 0;
+
+    @Override
+    public AtomicInteger getNumOpsInsert() {
+        return numOpsInsert;
+    }
+
+    @Override
+    public AtomicInteger getNumOpsSearch() {
+        return numOpsSearch;
+    }
+
     AtomicInteger numOpsInsert;
     AtomicInteger numOpsSearch;
 
