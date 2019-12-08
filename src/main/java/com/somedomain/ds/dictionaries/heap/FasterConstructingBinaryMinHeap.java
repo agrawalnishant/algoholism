@@ -10,13 +10,14 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Data
-public class BinaryMinHeap<T> implements Heap<T> {
+public class FasterConstructingBinaryMinHeap<T> implements Heap<T> {
     private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
     T[] listOfElements;
     Comparator<T> comparator;
     Integer limit;
     Integer currentSize = 0;
+    Class<T> type;
 
     @Override
     public AtomicInteger getNumOpsInsert() {
@@ -31,9 +32,10 @@ public class BinaryMinHeap<T> implements Heap<T> {
     AtomicInteger numOpsInsert;
     AtomicInteger numOpsSearch;
 
-    public BinaryMinHeap(Class<T> type, final Integer limit, final Comparator<T> comparator) {
+    public FasterConstructingBinaryMinHeap(Class<T> type, final Integer limit, final Comparator<T> comparator) {
         this.limit = limit;
         this.comparator = comparator;
+        this.type = type;
         listOfElements = (T[]) Array.newInstance(type, limit);
         numOpsInsert = new AtomicInteger();
         numOpsSearch = new AtomicInteger();
@@ -52,7 +54,17 @@ public class BinaryMinHeap<T> implements Heap<T> {
 
     @Override
     public int insert(T[] tArray) {
-        throw new UnsupportedOperationException("");
+        this.limit = tArray.length;
+        this.currentSize = this.limit;
+        this.listOfElements = tArray;
+        logger.atFinest().log("Pre-Heapify Copy.");
+        showAll();
+        for (int bubbleCounter = limit - 1; bubbleCounter >= 0; bubbleCounter--) {
+            bubbleDown(bubbleCounter);
+        }
+        logger.atFinest().log("Post-Heapify Copy.");
+        showAll();
+        return limit;
     }
 
     private void bubbleUp(Integer position) {
@@ -73,6 +85,7 @@ public class BinaryMinHeap<T> implements Heap<T> {
         T tmp = listOfElements[parentPos];
         listOfElements[parentPos] = listOfElements[currentPos];
         listOfElements[currentPos] = tmp;
+
     }
 
     @Override

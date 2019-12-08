@@ -10,6 +10,7 @@ public interface Heap<T> {
     AtomicInteger getNumOpsSearch();
 
     int insert(final T t);
+    int insert(final T[] tArray);
 
     T getNextAndHeapify();
 
