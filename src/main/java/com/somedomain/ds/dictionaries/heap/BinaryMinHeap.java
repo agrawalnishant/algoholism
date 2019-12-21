@@ -106,6 +106,7 @@ public class BinaryMinHeap<T> implements Heap<T> {
     @Override
     public void showAll() {
         logger.atFinest().log(Arrays.toString(listOfElements));
+        Heap.super.showAll();
     }
 
     @Override
