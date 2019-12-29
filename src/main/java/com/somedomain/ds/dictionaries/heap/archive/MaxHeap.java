@@ -1,4 +1,4 @@
-package com.somedomain.ds.containers;
+package com.somedomain.ds.dictionaries.heap.archive;
 
 import com.google.common.flogger.FluentLogger;
 
@@ -6,14 +6,14 @@ import java.util.Arrays;
 
 import static com.somedomain.algos.Utility.swap;
 
-public class Heap {
+public class MaxHeap {
     private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
     private final int[] srcArray;
     //private int size;
     private int heapSize;
 
-    public Heap(int[] arr) {
+    public MaxHeap(int[] arr) {
         this.srcArray = arr;
         //this.size = srcArray.length;
         heapSize = srcArray.length;
@@ -25,7 +25,7 @@ public class Heap {
     public static void main(String[] args) {
 
         int[] testArray = new int[]{8, 7, 1, 0, 12, 678, 45, 98, 11, 35};
-        Heap heap = new Heap(testArray);
+        MaxHeap heap = new MaxHeap(testArray);
         heap.buildMaxHeap();
         logger.atFine().log("Max is: " + testArray[0] + " in " + Arrays.toString(testArray));
 
