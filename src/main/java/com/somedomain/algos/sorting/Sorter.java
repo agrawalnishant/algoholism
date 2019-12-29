@@ -1,9 +1,12 @@
 package com.somedomain.algos.sorting;
 
-import java.util.List;
+import java.util.ArrayList;
+import java.util.LinkedList;
 
 public interface Sorter<T> {
 
-    void sort(List<T> list);
+    void sort(LinkedList<T> list);
+
+    void sort(ArrayList<T> list);
 
 }

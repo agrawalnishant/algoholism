@@ -72,4 +72,14 @@ public class ArrayBackedSimpleQueue<T> implements Queue<T> {
     public int count() {
         return head - tail;
     }
+
+    @Override
+    public boolean isEmpty() {
+        return head - tail == 0;
+    }
+
+    @Override
+    public T head() {
+        return queue[head];
+    }
 }
