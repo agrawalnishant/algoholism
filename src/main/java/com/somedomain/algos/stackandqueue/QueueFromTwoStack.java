@@ -64,4 +64,20 @@ public class QueueFromTwoStack<T> implements Queue<T> {
     public int count() {
         return size;
     }
+
+    @Override
+    public boolean isEmpty() {
+        return stackHead.isEmpty() && stackTail.isEmpty();
+    }
+
+    @Override
+    public T head() {
+        if (!stackHead.isEmpty()) {
+            return stackHead.peek();
+        } else if (!stackTail.isEmpty()) {
+            return stackTail.peek();
+        } else {
+            return null;
+        }
+    }
 }
