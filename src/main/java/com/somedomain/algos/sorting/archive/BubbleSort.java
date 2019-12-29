@@ -1,4 +1,4 @@
-package com.somedomain.algos.sorting;
+package com.somedomain.algos.sorting.archive;
 
 import static com.somedomain.algos.Utility.swap;
 
