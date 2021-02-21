@@ -1,16 +1,15 @@
-package com.somedomain.algos.sorting.archive;
+package com.somedomain.algos.sorting.sequential;
 
-public class InsertionSort implements SortingAlgo {
+import com.somedomain.algos.sorting.PrimitiveSort;
+
+public class InsertionSort implements PrimitiveSort {
 
     @Override
     public void sort(int[] sourceArray) {
         int arrayLen = sourceArray.length;
-
         for (int outCounter = 1; outCounter < arrayLen; outCounter++) {
-
             int temp = sourceArray[outCounter];
             int inCounter = outCounter - 1;
-
             // Iterate inward while moving larger elements outward to sort in
             // ASC order.
             while (inCounter >= 0 && sourceArray[inCounter] > temp) {
@@ -18,8 +17,6 @@ public class InsertionSort implements SortingAlgo {
                 --inCounter;
             }
             sourceArray[inCounter + 1] = temp;
-            // print(sourceArray, null);
         }
     }
-
 }

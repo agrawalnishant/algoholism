@@ -1,9 +1,5 @@
-package com.somedomain.algos.sorting;
+package com.somedomain.algos.sorting.sequential;
 
-import com.somedomain.algos.sorting.archive.BubbleSort;
-import com.somedomain.algos.sorting.archive.CombBubbleSort;
-import com.somedomain.algos.sorting.archive.InsertionSort;
-import com.somedomain.algos.sorting.archive.SelectionSort;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 

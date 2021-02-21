@@ -1,7 +1,7 @@
 package com.somedomain.algos.sorting.divideconquer;
 
 import com.google.common.flogger.FluentLogger;
-import com.somedomain.algos.sorting.Sorter;
+import com.somedomain.algos.sorting.ObjectSort;
 import com.somedomain.utilities.comparators.IntegerArrayListComparator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,14 +12,14 @@ import java.util.Comparator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class MergeSorterTest {
+class MergeObjectSortTest {
     private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
     private ArrayList<Integer> listOfIntegers = new ArrayList<Integer>();
     private Comparator<Integer> integerComparator = (Integer one, Integer two) -> {
         return one - two;
     };
-    Sorter<Integer> sorter = new MergeSorter<Integer>(Integer.class, integerComparator);
+    ObjectSort<Integer> objectSort = new MergeObjectSort<Integer>(Integer.class, integerComparator);
 
     ArrayList<Integer> expectedIntegerArrayList = new ArrayList<Integer>();
 
@@ -31,7 +31,7 @@ class MergeSorterTest {
 
     @Test
     void sort() {
-        sorter.sort(listOfIntegers);
+        objectSort.sort(listOfIntegers);
         IntegerArrayListComparator integerArrayListComparator = new IntegerArrayListComparator();
         assertEquals(integerArrayListComparator.compare(listOfIntegers, expectedIntegerArrayList), 0);
     }

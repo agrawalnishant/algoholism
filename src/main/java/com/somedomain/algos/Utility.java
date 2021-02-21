@@ -1,7 +1,7 @@
 package com.somedomain.algos;
 
 import com.google.common.flogger.FluentLogger;
-import com.somedomain.algos.sorting.archive.InsertionSort;
+import com.somedomain.algos.sorting.sequential.InsertionSort;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -101,7 +101,7 @@ public class Utility {
      * @param index1
      * @param index2
      */
-    public static void swap(final int[] sourceArray, int index1, int index2) {
+    public static void swapItemsIn(final int[] sourceArray, int index1, int index2) {
         int tmpValue = sourceArray[index1];
         sourceArray[index1] = sourceArray[index2];
         sourceArray[index2] = tmpValue;

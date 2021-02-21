@@ -1,16 +1,17 @@
 package com.somedomain.algos.sorting.divideconquer;
 
+import com.somedomain.algos.sorting.ObjectSort;
 import com.somedomain.ds.containers.queue.ArrayBackedSimpleQueue;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.LinkedList;
 
-public class MergeSorter<T> implements com.somedomain.algos.sorting.Sorter<T> {
-    private Comparator<T> comparator;
+public class MergeObjectSort<T> implements ObjectSort<T> {
     Class<T> type;
+    private final Comparator<T> comparator;
 
-    public MergeSorter(Class<T> type, final Comparator<T> comparator) {
+    public MergeObjectSort(Class<T> type, final Comparator<T> comparator) {
         this.type = type;
         this.comparator = comparator;
     }

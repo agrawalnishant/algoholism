@@ -1,6 +1,8 @@
-package com.somedomain.algos.sorting.archive;
+package com.somedomain.algos.sorting.sequential;
 
-import static com.somedomain.algos.Utility.swap;
+import com.somedomain.algos.sorting.sequential.BubbleSort;
+
+import static com.somedomain.algos.Utility.swapItemsIn;
 
 public class CombBubbleSort extends BubbleSort {
 
@@ -20,19 +22,16 @@ public class CombBubbleSort extends BubbleSort {
         int maxArrayIndex = arrayLen - 1;
         int gap = arrayLen;
         float shrinkFactor = 1.3f;
-
         boolean swapped = false;
-
         while (gap > 1 || swapped == true) {
             gap = new Float(gap / shrinkFactor).intValue();
             if (gap < 1) {
                 gap = 1;
             }
             swapped = false;
-
             for (int counter = 0; counter + gap < arrayLen; counter++) {
                 if (sourceArray[counter] > sourceArray[counter + gap]) {
-                    swap(sourceArray, counter, counter + gap);
+                    swapItemsIn(sourceArray, counter, counter + gap);
                     swapped = true;
                 }
             }

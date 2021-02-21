@@ -3,7 +3,7 @@ package com.somedomain.algos.sorting;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public interface Sorter<T> {
+public interface ObjectSort<T> {
 
     void sort(LinkedList<T> list);
 

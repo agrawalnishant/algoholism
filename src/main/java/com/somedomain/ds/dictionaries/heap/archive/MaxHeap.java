@@ -4,7 +4,7 @@ import com.google.common.flogger.FluentLogger;
 
 import java.util.Arrays;
 
-import static com.somedomain.algos.Utility.swap;
+import static com.somedomain.algos.Utility.swapItemsIn;
 
 public class MaxHeap {
     private static final FluentLogger logger = FluentLogger.forEnclosingClass();
@@ -84,7 +84,7 @@ public class MaxHeap {
 
         if (largest != indexInArr) {
             logger.atFine().log("Swapping " + srcArray[indexInArr] + " with " + srcArray[largest]);
-            swap(srcArray, indexInArr, largest);
+            swapItemsIn(srcArray, indexInArr, largest);
             maxHeapify(largest);
         }
     }

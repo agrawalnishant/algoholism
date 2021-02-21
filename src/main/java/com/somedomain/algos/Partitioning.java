@@ -27,7 +27,7 @@ public class Partitioning {
             if (leftPos >= rightPos) {
                 break;
             } else {
-                Utility.swap(intArray, leftPos, rightPos);
+                Utility.swapItemsIn(intArray, leftPos, rightPos);
             }
 
         }
