@@ -1,4 +1,4 @@
-package com.somedomain.algos.sorting.divideconquer;
+package com.somedomain.algos.sorting.generic;
 
 import com.google.common.flogger.FluentLogger;
 import com.somedomain.algos.sorting.ObjectSort;

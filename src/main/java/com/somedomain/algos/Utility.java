@@ -1,7 +1,7 @@
 package com.somedomain.algos;
 
 import com.google.common.flogger.FluentLogger;
-import com.somedomain.algos.sorting.sequential.InsertionSort;
+import com.somedomain.algos.sorting.primitive.InsertionSort;
 
 import java.util.Arrays;
 import java.util.Random;

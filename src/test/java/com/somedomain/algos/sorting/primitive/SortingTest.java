@@ -1,4 +1,4 @@
-package com.somedomain.algos.sorting.sequential;
+package com.somedomain.algos.sorting.primitive;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -76,6 +76,17 @@ public class SortingTest {
         new CombBubbleSort().sort(integerArray);
         long endTime = System.nanoTime();
         print(integerArray, null);
+        assertArrayEquals(sortedArray, integerArray);
+    }
+
+    @Test
+    public void testMergeSort() {
+        int[] integerArray = this.integerArray.clone();
+        print(integerArray, "Before");
+        long startTime = System.nanoTime();
+        new MergeSort().sort(integerArray);
+        long endTime = System.nanoTime();
+        print(integerArray, "After");
         assertArrayEquals(sortedArray, integerArray);
     }
 

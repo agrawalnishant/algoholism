@@ -1,6 +1,4 @@
-package com.somedomain.algos.sorting.sequential;
-
-import com.somedomain.algos.sorting.sequential.BubbleSort;
+package com.somedomain.algos.sorting.primitive;
 
 import static com.somedomain.algos.Utility.swapItemsIn;
 

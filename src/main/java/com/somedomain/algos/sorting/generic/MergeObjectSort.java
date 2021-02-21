@@ -1,4 +1,4 @@
-package com.somedomain.algos.sorting.divideconquer;
+package com.somedomain.algos.sorting.generic;
 
 import com.somedomain.algos.sorting.ObjectSort;
 import com.somedomain.ds.containers.queue.ArrayBackedSimpleQueue;

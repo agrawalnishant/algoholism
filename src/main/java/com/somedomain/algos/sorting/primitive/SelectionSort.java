@@ -1,4 +1,4 @@
-package com.somedomain.algos.sorting.sequential;
+package com.somedomain.algos.sorting.primitive;
 
 import com.somedomain.algos.sorting.PrimitiveSort;
 
