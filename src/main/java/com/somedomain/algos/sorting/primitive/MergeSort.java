@@ -7,7 +7,6 @@ public class MergeSort implements PrimitiveSort {
     private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
     public void sort(final int[] sourceArray) {
-
         mergeSort(sourceArray, 0, sourceArray.length - 1);
     }
 
