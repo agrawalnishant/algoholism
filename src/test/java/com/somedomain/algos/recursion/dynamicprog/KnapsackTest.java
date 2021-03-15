@@ -13,12 +13,23 @@ class KnapsackTest {
     @CsvSource({
 
             "20 , 33",
-            "15 , 25",
-            "5 , 12"
+            "15 , 25"
     })
     void chooseMaxValue(String maxAllowedWeight, String maxKnapsackValue) {
-
         long result = Knapsack.chooseMaxValue(weightArray, valueArray, Integer.valueOf(maxAllowedWeight), 0);
+        assertEquals(Long.valueOf(maxKnapsackValue), result, "Expected MaxValue is : " + Integer.valueOf(maxKnapsackValue) + " but was: " + result);
+
+    }
+
+
+    @ParameterizedTest(name = "Max Knapsack Value is {1} for max Weight {0}, using Memoization.")
+    @CsvSource({
+
+            "20 , 33",
+            "15 , 25"
+    })
+    void memoizeMaxValue(String maxAllowedWeight, String maxKnapsackValue) {
+        long result = Knapsack.memoizeMaxValue(weightArray, valueArray, Integer.valueOf(maxAllowedWeight), 0);
         assertEquals(Long.valueOf(maxKnapsackValue), result, "Expected MaxValue is : " + Integer.valueOf(maxKnapsackValue) + " but was: " + result);
 
     }
