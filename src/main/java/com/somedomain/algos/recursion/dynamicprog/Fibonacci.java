@@ -35,7 +35,7 @@ public class Fibonacci {
         return num;
     }
 
-    public static int generateNthNumWithLookup(final int n) {
+    public static int generateNthNumBottomsUpOptimally(final int n) {
         int num = 0;
         int lastNum = 0;
         int secondLastNum = 1;

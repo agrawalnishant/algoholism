@@ -33,4 +33,18 @@ class KnapsackTest {
         assertEquals(Long.valueOf(maxKnapsackValue), result, "Expected MaxValue is : " + Integer.valueOf(maxKnapsackValue) + " but was: " + result);
 
     }
+
+    @ParameterizedTest(name = "Max Knapsack Value is {1} for max Weight {0}, using BottomsUp Table.")
+    @CsvSource({
+
+            "20 , 33",
+            "15 , 25"
+    })
+    void tabulizeMaxValue(String maxAllowedWeight, String maxKnapsackValue) {
+        long result = Knapsack.tabulizeMaxValue(weightArray, valueArray, Integer.valueOf(maxAllowedWeight));
+        assertEquals(Long.valueOf(maxKnapsackValue), result, "Expected MaxValue is : " + Integer.valueOf(maxKnapsackValue) + " but was: " + result);
+
+    }
+
+
 }
