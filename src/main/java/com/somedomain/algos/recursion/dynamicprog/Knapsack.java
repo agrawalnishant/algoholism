@@ -41,7 +41,6 @@ public class Knapsack {
     public static int tabulizeMaxValue(int[] weightArray, int[] valueArray, final int maxWeight) {
         if (bottomsUpTable == null)
             bottomsUpTable = initTable(weightArray.length, maxWeight);
-        int totalValue = 0;
         for (int index = 0; index <= weightArray.length; index++) {
             for (int weightCounter = 0; weightCounter <= maxWeight; weightCounter++) {
                 if (index == 0 || weightCounter == 0) {

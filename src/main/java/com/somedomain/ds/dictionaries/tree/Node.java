@@ -102,10 +102,7 @@ public class Node {
             return false;
         }
         Node other = (Node) obj;
-        if (key != other.key) {
-            return false;
-        }
-        return true;
+        return key == other.key;
     }
 
     @Override

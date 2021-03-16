@@ -3,9 +3,9 @@ package com.somedomain.ds.dictionaries.tree;
 public class TreeIteratorImpl implements TreeIterator {
 
     private final Node[] stackOfNodes;
-    private AbstractBinarySearchTree tree;
+    private final AbstractBinarySearchTree tree;
     private Integer stackPointer;
-    private Integer itrCount = 0;
+    private final Integer itrCount = 0;
 
     public TreeIteratorImpl(final AbstractBinarySearchTree tree) {
         this.tree = tree;

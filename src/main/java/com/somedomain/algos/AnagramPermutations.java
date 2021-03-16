@@ -5,8 +5,8 @@ import com.google.common.flogger.FluentLogger;
 public class AnagramPermutations {
     private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
-    private char[] charArray;
-    private int length;
+    private final char[] charArray;
+    private final int length;
 
     public AnagramPermutations(String input) {
         charArray = input.toCharArray();

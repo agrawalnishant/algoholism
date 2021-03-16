@@ -9,8 +9,8 @@ public class QueueFromTwoStack<T> implements Queue<T> {
     private static final Integer DEFAULT_SIZE = 10;
 
     private int size;
-    private Stack<T> stackHead;
-    private Stack<T> stackTail;
+    private final Stack<T> stackHead;
+    private final Stack<T> stackTail;
 
     private Stack<T> createStack(Class<T> type) {
         return new ArrayBackedStack<T>(type, DEFAULT_SIZE);

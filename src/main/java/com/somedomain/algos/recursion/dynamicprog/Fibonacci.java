@@ -6,7 +6,7 @@ public class Fibonacci {
 
     private static final FluentLogger flogger = FluentLogger.forEnclosingClass();
 
-    private static int[] memoizedTable = new int[100];
+    private static final int[] memoizedTable = new int[100];
 
     public static void main(String[] args) {
         flogger.atInfo().log("Nth num: " + generateNthNum(6));

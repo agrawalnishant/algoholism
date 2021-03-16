@@ -27,7 +27,7 @@ public class SortingTest {
 
     @Test
     public void testPartitioning() {
-        int[] integerArray = this.integerArray.clone();
+        int[] integerArray = SortingTest.integerArray.clone();
         print(integerArray, "Input to partition: ");
         print(integerArray, "Output from Partition: ");
 
@@ -35,7 +35,7 @@ public class SortingTest {
 
     @Test
     public void testInsertionSort() {
-        int[] integerArray = this.integerArray.clone();
+        int[] integerArray = SortingTest.integerArray.clone();
         print(integerArray, null);
         long startTime = System.nanoTime();
         new InsertionSort().sort(integerArray);
@@ -48,7 +48,7 @@ public class SortingTest {
     @Test
     public void testSelectionSort() {
 
-        int[] integerArray = this.integerArray.clone();
+        int[] integerArray = SortingTest.integerArray.clone();
         print(integerArray, null);
         long startTime = System.nanoTime();
         new SelectionSort().sort(integerArray);
@@ -59,7 +59,7 @@ public class SortingTest {
 
     @Test
     public void testBubbleSort() {
-        int[] integerArray = this.integerArray.clone();
+        int[] integerArray = SortingTest.integerArray.clone();
         print(integerArray, null);
         long startTime = System.nanoTime();
         new BubbleSort().sort(integerArray);
@@ -70,7 +70,7 @@ public class SortingTest {
 
     @Test
     public void testCombBubbleSort() {
-        int[] integerArray = this.integerArray.clone();
+        int[] integerArray = SortingTest.integerArray.clone();
         print(integerArray, null);
         long startTime = System.nanoTime();
         new CombBubbleSort().sort(integerArray);
@@ -81,7 +81,7 @@ public class SortingTest {
 
     @Test
     public void testMergeSort() {
-        int[] integerArray = this.integerArray.clone();
+        int[] integerArray = SortingTest.integerArray.clone();
         print(integerArray, "Before");
         long startTime = System.nanoTime();
         new MergeSort().sort(integerArray);

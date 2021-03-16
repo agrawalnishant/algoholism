@@ -21,7 +21,7 @@ public class Anagram {
         }
         for (char c : testString.toCharArray()) {
             if (sourceDistri[c]-- <= 0) {
-                logger.atFinest().log("Anomaly[Less char in source ] \t: Char: " + ((char) (c)));
+                logger.atFinest().log("Anomaly[Less char in source ] \t: Char: " + c);
 
                 return false;
             }

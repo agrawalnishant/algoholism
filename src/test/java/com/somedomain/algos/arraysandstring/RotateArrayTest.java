@@ -17,12 +17,12 @@ class RotateArrayTest {
     void rotateArray() {
 
         ArrayList<Integer> integerArrayList = new ArrayList<Integer>();
-        Collections.addAll(integerArrayList, new Integer[]{5, 14, 34, 42, 63, 17, 25, 39, 61, 97, 55, 33, 96, 62, 32, 98, 77, 35});
+        Collections.addAll(integerArrayList, 5, 14, 34, 42, 63, 17, 25, 39, 61, 97, 55, 33, 96, 62, 32, 98, 77, 35);
         ArrayList<Integer> result = RotateArray.rotateArray(integerArrayList, 56);
         logger.atFine().log("Result: " + result);
 
         ArrayList<Integer> expectedArrayList = new ArrayList<Integer>();
-        Collections.addAll(expectedArrayList, new Integer[]{34, 42, 63, 17, 25, 39, 61, 97, 55, 33, 96, 62, 32, 98, 77, 35, 5, 14});
+        Collections.addAll(expectedArrayList, 34, 42, 63, 17, 25, 39, 61, 97, 55, 33, 96, 62, 32, 98, 77, 35, 5, 14);
 
         assertTrue(new IntegerArrayListComparator().compare(result, expectedArrayList) == 0);
 
