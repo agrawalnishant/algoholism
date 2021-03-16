@@ -6,8 +6,8 @@ public enum MathsOperators {
     ADDITION('+', 0), SUBTRACTION('-', 0),
     INVALID(' ', -1);
 
-    private int priority;
-    private char symbol;
+    private final int priority;
+    private final char symbol;
 
     public int getPriority() {
         return priority;

@@ -5,9 +5,9 @@ import com.google.common.flogger.FluentLogger;
 public class CircularIntQueue {
     private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
-    private int[] qArr;
+    private final int[] qArr;
     private int qLen;
-    private int capacity;
+    private final int capacity;
     private int head;
     private int tail;
 
