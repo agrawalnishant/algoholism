@@ -31,10 +31,6 @@ public abstract class AbstractBinarySearchTree {
 
     protected static Node createInorderList(Node currentNode) {
 
-        if (currentNode == null) {
-            return null;
-        }
-
         return currentNode;
     }
 

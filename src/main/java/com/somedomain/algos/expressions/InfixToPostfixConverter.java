@@ -13,7 +13,7 @@ public class InfixToPostfixConverter {
 
 
     public static String convertToPostfix(final String infixExpression, final char delimiter) {
-        StringBuilder targetPostfixExpression = new StringBuilder("");
+        StringBuilder targetPostfixExpression = new StringBuilder();
 
         if (infixExpression != null && infixExpression.length() > 3) {
             String[] tokens = infixExpression.trim().split(String.valueOf(delimiter));

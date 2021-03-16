@@ -12,10 +12,10 @@ class AddOneToDigitsTest {
     @Test
     void plusOne() {
         ArrayList<Integer> integerArrayList = new ArrayList<Integer>();
-        Collections.addAll(integerArrayList, new Integer[]{0, 0, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9});
+        Collections.addAll(integerArrayList, 0, 0, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9);
         ArrayList<Integer> result = AddOneToDigits.plusOne(integerArrayList);
         ArrayList<Integer> expectedResult = new ArrayList<>();
-        Collections.addAll(expectedResult, new Integer[]{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0});
+        Collections.addAll(expectedResult, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         Assertions.assertTrue(new IntegerArrayListComparator().compare(result, expectedResult) == 0);
 
     }

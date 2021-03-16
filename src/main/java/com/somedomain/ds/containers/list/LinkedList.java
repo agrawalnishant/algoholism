@@ -72,11 +72,7 @@ public class LinkedList<T> implements List<T> {
         ListNode<T> firstNode = START_NODE.getNextNode();
         if (firstNode != null) {
             ListNode<T> secondNode = firstNode.getNextNode();
-            if (secondNode != null) {
-                START_NODE.setNextNode(secondNode);
-            } else {
-                START_NODE.setNextNode(null);
-            }
+            START_NODE.setNextNode(secondNode);
             responseCode = --currentSize;
         }
         return responseCode;

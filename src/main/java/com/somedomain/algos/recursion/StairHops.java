@@ -7,8 +7,8 @@ import java.util.concurrent.atomic.AtomicLong;
 public class StairHops {
 
     private static final FluentLogger logger = FluentLogger.forEnclosingClass();
-    private AtomicLong counter = new AtomicLong();
-    private Long[] hopsMap = new Long[100];
+    private final AtomicLong counter = new AtomicLong();
+    private final Long[] hopsMap = new Long[100];
 
     public long waysToClimbSteps(final int numberOfSteps) {
         return waysToClimbStairsInHopsOfOneTwoThree(numberOfSteps);

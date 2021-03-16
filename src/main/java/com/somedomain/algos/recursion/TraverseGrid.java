@@ -11,8 +11,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class TraverseGrid {
     private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
-    private HashMap<Point, Integer> cache = new HashMap<Point, Integer>();
-    private AtomicInteger iterations = new AtomicInteger(0);
+    private final HashMap<Point, Integer> cache = new HashMap<Point, Integer>();
+    private final AtomicInteger iterations = new AtomicInteger(0);
 
     public int traverse(final Point source, final Point destination, final ArrayList<Point> exclusions) {
         if (source == null || destination == null) {
