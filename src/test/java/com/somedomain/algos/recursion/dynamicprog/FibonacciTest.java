@@ -51,7 +51,7 @@ class FibonacciTest {
     })
     void generateNthNumWithLookup(String n, String nthFibNum) {
 
-        long result = Fibonacci.generateNthNumWithLookup(Integer.valueOf(n));
+        long result = Fibonacci.generateNthNumBottomsUpOptimally(Integer.valueOf(n));
         assertEquals(Long.valueOf(nthFibNum), result, "Expected Memoized Nth Fib Num to be : " + Integer.valueOf(nthFibNum) + " but was: " + result);
 
     }
