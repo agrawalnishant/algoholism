@@ -63,4 +63,23 @@ public class StairHops {
         return hopsMap[steps];
     }
 
+    public static int optimalTabulizedHopscotch(int steps) {
+        if (hopsMap == null) {
+            hopsMap = new Integer[steps + 1];
+            Arrays.fill(hopsMap, EMPTY);
+        }
+        int hopCount0 = 1;
+        int hopCount1 = 1;
+        int hopCount2 = 2;
+        int currentHopCount = 0;
+        for (int count = 3; count <= steps; count++) {
+            currentHopCount = hopCount2 + hopCount1 + hopCount0;
+            hopsMap[count] = currentHopCount;
+            hopCount0 = hopCount1;
+            hopCount1 = hopCount2;
+            hopCount2 = currentHopCount;
+        }
+        return hopsMap[steps];
+    }
+
 }

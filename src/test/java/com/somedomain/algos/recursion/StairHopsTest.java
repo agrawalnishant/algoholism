@@ -48,7 +48,17 @@ class StairHopsTest {
         assertEquals(Long.valueOf(expectedWays), result, "Expected tubulized ways to be : " + Integer.valueOf(expectedWays) + " but was: " + result);
     }
 
+    @ParameterizedTest(name = "{1} ways to climb {0} steps in hops of 1,2, and 3, using Tabulization.")
+    @CsvSource({
 
+            "4 , 7",
+            "5 , 13",
+            "3 , 4"
+    })
+    void optimalTabulizedWaysToClimbStairs(String steps, String expectedWays) {
 
+        long result = new StairHops().optimalTabulizedHopscotch(Integer.valueOf(steps));
+        assertEquals(Long.valueOf(expectedWays), result, "Expected Optimal Space tubulized ways to be : " + Integer.valueOf(expectedWays) + " but was: " + result);
+    }
 
 }
