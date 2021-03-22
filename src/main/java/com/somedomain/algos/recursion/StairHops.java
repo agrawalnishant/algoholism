@@ -7,11 +7,12 @@ import java.util.concurrent.atomic.AtomicLong;
 
 public class StairHops {
 
+    public static final int EMPTY = -1;
     private static final FluentLogger logger = FluentLogger.forEnclosingClass();
     private static Integer[] hopsMap = null;
     private final AtomicLong counter = new AtomicLong();
 
-    public StairHops(){
+    public StairHops() {
         hopsMap = null;
     }
 
@@ -32,13 +33,13 @@ public class StairHops {
         int numWays = 0;
         if (hopsMap == null) {
             hopsMap = new Integer[steps + 1];
-            Arrays.fill(hopsMap, -1);
+            Arrays.fill(hopsMap, EMPTY);
         }
         if (steps < 0) {
             return 0;
         } else if (steps == 0) {
             return 1;
-        } else if (hopsMap[steps] != -1) {
+        } else if (hopsMap[steps] != EMPTY) {
             return hopsMap[steps];
         } else {
             numWays = memoizedHopscotch(steps - 1) + memoizedHopscotch(steps - 2) + memoizedHopscotch(steps - 3);
@@ -46,6 +47,20 @@ public class StairHops {
             return numWays;
         }
 
+    }
+
+    public static int tabulizedHopscotch(int steps) {
+        if (hopsMap == null) {
+            hopsMap = new Integer[steps + 1];
+            Arrays.fill(hopsMap, EMPTY);
+        }
+        hopsMap[0] = 1;
+        hopsMap[1] = 1;
+        hopsMap[2] = 2;
+        for (int count = 3; count <= steps; count++) {
+            hopsMap[count] = hopsMap[count - 1] + hopsMap[count - 2] + hopsMap[count - 3];
+        }
+        return hopsMap[steps];
     }
 
 }
