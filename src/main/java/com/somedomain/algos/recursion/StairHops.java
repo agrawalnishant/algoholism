@@ -10,37 +10,19 @@ public class StairHops {
     private final AtomicLong counter = new AtomicLong();
     private final Long[] hopsMap = new Long[100];
 
-    public long waysToClimbSteps(final int numberOfSteps) {
-        return waysToClimbStairsInHopsOfOneTwoThree(numberOfSteps);
-    }
 
-    public long waysToClimbStairsInHopsOfOneTwoThree(final int steps) {
-        counter.getAndIncrement();
+    public static long naiveHopscotch(int steps) {
+        long numWays = 0;
         if (steps < 0) {
-            return 0;
+            numWays = 0;
         } else if (steps == 0) {
-            return 1;
+            numWays = 1;
         } else {
-            {
-                long result = 0;
-                if (hopsMap[steps] != null && hopsMap[steps] != 0) {
-                    logger.atFinest().log("Got from Map [" + steps + ", " + hopsMap[steps] + "] --- [" + counter.getAndIncrement() + "] ----> result: " + result);
-                    return hopsMap[steps];
-
-                } else {
-
-                    result = waysToClimbStairsInHopsOfOneTwoThree(steps - 1)
-                            + waysToClimbStairsInHopsOfOneTwoThree(steps - 2)
-                            + waysToClimbStairsInHopsOfOneTwoThree(steps - 3);
-                    logger.atFinest().log("Put into Map[" + steps + ", " + result + "] --- [" + counter.getAndIncrement() + "] ----> result: " + result);
-                    hopsMap[steps] = result;
-
-                }
-
-                return result;
-
-            }
+            numWays = naiveHopscotch(steps - 1) + naiveHopscotch(steps - 2) + naiveHopscotch(steps - 3);
         }
+
+        return numWays;
     }
+
 
 }
