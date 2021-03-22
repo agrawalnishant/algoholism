@@ -16,7 +16,7 @@ class StairHopsTest {
     })
     void waysToClimbStairs(String steps, String expectedWays) {
 
-        long result = new StairHops().waysToClimbSteps(Integer.valueOf(steps));
+        long result = new StairHops().naiveHopscotch(Integer.valueOf(steps));
         assertEquals(Long.valueOf(expectedWays), result, "Expected ways to be : " + Integer.valueOf(expectedWays) + " but was: " + result);
 
     }
