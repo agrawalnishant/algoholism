@@ -1,4 +1,4 @@
-package com.somedomain.algos.recursion;
+package com.somedomain.algos.recursion.dynamicprog;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
