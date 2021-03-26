@@ -1,4 +1,4 @@
-package com.somedomain.algos.recursion;
+package com.somedomain.algos.recursion.dynamicprog;
 
 import com.google.common.flogger.FluentLogger;
 
