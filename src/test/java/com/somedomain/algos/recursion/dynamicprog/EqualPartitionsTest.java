@@ -27,5 +27,24 @@ class EqualPartitionsTest {
 
     }
 
+    @ParameterizedTest(name = "Partitioning test successful for Set: {0}, Result: \"{1}\" using Memoization.")
+    @CsvSource({
+
+            "7 2 3 4 9 6 18 1, true",
+            "1 2 3, true",
+            "7 2 3 4 9 6 18 2, false",
+            "7 2 3 4, false"
+
+
+    })
+    void hasEqualPartitionsMemoized(String testArrayString, String expectedResult) {
+        String[] elements = testArrayString.split(" ");
+        int[] numArray = Stream.of(elements).mapToInt(Integer::parseInt).toArray();
+
+        boolean result = EqualPartitions.hasEqualPartitionsUsingMemoization(numArray);
+        assertEquals(Boolean.valueOf(expectedResult), result, "Memoized Expected Array Partitioning possible : " + Boolean.valueOf(expectedResult) + " but was: " + result);
+
+    }
+
 
 }
