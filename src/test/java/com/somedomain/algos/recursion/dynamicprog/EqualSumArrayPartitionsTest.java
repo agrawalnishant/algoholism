@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class EqualPartitionsTest {
+class EqualSumArrayPartitionsTest {
     @ParameterizedTest(name = "Partitioning test successful for Set: {0}, Result: \"{1}\" using Brute-Force DP.")
     @CsvSource({
 
@@ -25,7 +25,7 @@ class EqualPartitionsTest {
         String[] elements = testArrayString.split(" ");
         int[] numArray = Stream.of(elements).mapToInt(Integer::parseInt).toArray();
 
-        boolean result = EqualPartitions.naiveCheck(numArray);
+        boolean result = EqualSumArrayPartitions.naiveCheck(numArray);
         assertEquals(Boolean.valueOf(expectedResult), result, "Expected Array Partitioning possible : " + Boolean.valueOf(expectedResult) + " but was: " + result);
 
     }
@@ -46,7 +46,7 @@ class EqualPartitionsTest {
         String[] elements = testArrayString.split(" ");
         int[] numArray = Stream.of(elements).mapToInt(Integer::parseInt).toArray();
 
-        boolean result = EqualPartitions.memoizedCheck(numArray);
+        boolean result = EqualSumArrayPartitions.memoizedCheck(numArray);
         assertEquals(Boolean.valueOf(expectedResult), result, "Memoized Expected Array Partitioning possible : " + Boolean.valueOf(expectedResult) + " but was: " + result);
 
     }
