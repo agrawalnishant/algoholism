@@ -14,7 +14,10 @@ class EqualPartitionsTest {
             "7 2 3 4 9 6 18 1, true",
             "1 2 3, true",
             "7 2 3 4 9 6 18 2, false",
-            "7 2 3 4, false"
+            "7 2 3 4, false",
+            "7, false",
+            "8, false"
+
 
 
     })
@@ -22,7 +25,7 @@ class EqualPartitionsTest {
         String[] elements = testArrayString.split(" ");
         int[] numArray = Stream.of(elements).mapToInt(Integer::parseInt).toArray();
 
-        boolean result = EqualPartitions.hasEqualPartitionsUsingNaiveDP(numArray);
+        boolean result = EqualPartitions.naiveCheck(numArray);
         assertEquals(Boolean.valueOf(expectedResult), result, "Expected Array Partitioning possible : " + Boolean.valueOf(expectedResult) + " but was: " + result);
 
     }
@@ -33,7 +36,9 @@ class EqualPartitionsTest {
             "7 2 3 4 9 6 18 1, true",
             "1 2 3, true",
             "7 2 3 4 9 6 18 2, false",
-            "7 2 3 4, false"
+            "7 2 3 4, false",
+            "7, false",
+            "8, false"
 
 
     })
@@ -41,7 +46,7 @@ class EqualPartitionsTest {
         String[] elements = testArrayString.split(" ");
         int[] numArray = Stream.of(elements).mapToInt(Integer::parseInt).toArray();
 
-        boolean result = EqualPartitions.hasEqualPartitionsUsingMemoization(numArray);
+        boolean result = EqualPartitions.memoizedCheck(numArray);
         assertEquals(Boolean.valueOf(expectedResult), result, "Memoized Expected Array Partitioning possible : " + Boolean.valueOf(expectedResult) + " but was: " + result);
 
     }
