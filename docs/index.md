@@ -27,9 +27,9 @@ Graphs
 
 ### Algorithms
 
-```
 Following are the Algorithms implemented here:
 
+```markdown
 Sorting
 #
 
@@ -39,7 +39,7 @@ Dynamic Programming
 ```
 
 ### Crazy Ideas
-```
+```markdown
 Data Structure Ideas
 #
 
@@ -47,7 +47,8 @@ Algorithm Ideas
 # There probably is a way to solve some DP problems using bits, espeially those including arraangement of Numeric Digits.
 
 ```
+
 ### Support or Contact
 
-For suggestions, feedback, or if you want to contribute, please [email me](mailto:root.nishi@gmail.com).
+For suggestions, feedback, or for contributions, please [email me](mailto:root.nishi@gmail.com).
 Thank you for visit!
