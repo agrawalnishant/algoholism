@@ -11,7 +11,7 @@ Following are the main among those:
 1. Intro to Algos. by Coreman
 2. Algorithms Design Manual - by Skiena
 3. Data Structures and Algos - by Karumanchi
-4. [Educative.io](https://www.educative.io/courses/algorithms-coding-interviews-java).
+4. [Educative.io](https://www.educative.io).
 
 ### Data Structures
 
@@ -44,7 +44,8 @@ Data Structure Ideas
 #
 
 Algorithm Ideas
-# There probably is a way to solve some DP problems using bits, espeially those including arraangement of Numeric Digits.
+# There probably is a way to solve some DP problems using bits,
+   espeially those including arraangement of Numeric Digits.
 
 ```
 
