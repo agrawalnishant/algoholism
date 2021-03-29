@@ -44,12 +44,11 @@ Data Structure Ideas
 #
 
 Algorithm Ideas
-# There probably is a way to solve some DP problems using bits,
-   espeially those including arraangement of Numeric Digits.
+# There probably is a way to solve some DP problems using bits, especially those including arrangement of Numeric Digits.
 
 ```
 
 ### Support or Contact
 
 For suggestions, feedback, or for contributions, please [email me](mailto:root.nishi@gmail.com).
-Thank you for visit!
+Thank you for this visit!
