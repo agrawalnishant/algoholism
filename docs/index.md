@@ -1,38 +1,53 @@
-## Welcome to GitHub Pages
+# Welcome to Algoholism!
 
-You can use the [editor on GitHub](https://github.com/agrawalnishant/algoholism/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+[Algoholism](https://github.com/agrawalnishant/algoholism) is a repository of code that I write to improve my understanding of fundamental Data Structures and Algorithms in Computer Science.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+While learning and implementing DS & Algos, I get crazy Ideas that are a fusion of my learning and my observations and thoughts.
+Will try to note them as well.
 
-### Markdown
+### References
+Over the years, I have referred different books and online content, to learn and implement.
+Following are the main among those: 
+1. Intro to Algos. by Coreman
+2. Algorithms Design Manual - by Skiena
+3. Data Structures and Algos - by Karumanchi
+4. [Educative.io](https://www.educative.io/courses/algorithms-coding-interviews-java).
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Data Structures
 
+Following is the list of Data Structures implemented here:
 ```markdown
-Syntax highlighted code block
+Trees
+# 
 
-# Header 1
-## Header 2
-### Header 3
+Graphs
+#
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### Algorithms
 
-### Jekyll Themes
+```
+Following are the Algorithms implemented here:
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/agrawalnishant/algoholism/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Sorting
+#
 
+Dynamic Programming
+#
+
+```
+
+### Crazy Ideas
+```
+Data Structure Ideas
+#
+
+Algorithm Ideas
+# There probably is a way to solve some DP problems using bits, espeially those including arraangement of Numeric Digits.
+
+```
 ### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
-
+For suggestions, feedback, or if you want to contribute, please [email me](mailto:root.nishi@gmail.com).
+Thank you for visit!
