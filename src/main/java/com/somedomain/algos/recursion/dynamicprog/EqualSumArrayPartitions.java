@@ -1,8 +1,7 @@
 package com.somedomain.algos.recursion.dynamicprog;
 
 import com.google.common.flogger.FluentLogger;
-
-import java.util.Arrays;
+import com.somedomain.algos.Utility;
 
 public class EqualSumArrayPartitions {
     private static final FluentLogger flogger = FluentLogger.forEnclosingClass();
@@ -34,11 +33,7 @@ public class EqualSumArrayPartitions {
         counter = 0;
         for (int num : srcArr)
             sum += num;
-        int[][] possibilitiesMatrix = new int[srcArr.length][sum];
-        for (int arrIdx = 0; arrIdx < srcArr.length; arrIdx++) {
-            Arrays.fill(possibilitiesMatrix[arrIdx], -1);
-        }
-
+        int[][] possibilitiesMatrix = Utility.buildAndInit2DMatrix(srcArr.length, sum, -1);
         boolean result = (sum % 2 == 0 && srcArr.length > 1) ? memoizedCheckSum(srcArr, 0, sum / 2, possibilitiesMatrix) : false;
         flogger.atInfo().log("Total Calculations: " + counter);
         return result;

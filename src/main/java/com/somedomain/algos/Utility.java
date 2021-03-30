@@ -128,4 +128,21 @@ public class Utility {
 
     }
 
+    public static int[][] buildAndInit2DMatrix(int dimention1, int dimention2, int defaultInitValue) {
+        int[][] matrix2D = new int[dimention1 + 1][dimention2 + 1];
+        for (int dim1 = 0; dim1 <= dimention1; dim1++) {
+            Arrays.fill(matrix2D[dim1], defaultInitValue);
+        }
+        return matrix2D;
+    }
+
+    public static int[][][] buildAndInit3DMatrix(int dimention1, int dimention2, int dimentions3, int defaultInitValue) {
+        int[][][] matrix3D = new int[dimention1 + 1][dimention2 + 1][dimentions3 + 1];
+        for (int dim1 = 0; dim1 <= dimention1; dim1++) {
+            for (int dim2 = 0; dim2 <= dimention2; dim2++) {
+                Arrays.fill(matrix3D[dim1][dim2], defaultInitValue);
+            }
+        }
+        return matrix3D;
+    }
 }
