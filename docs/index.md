@@ -1,9 +1,14 @@
 # Welcome to Algoholism!
 
-[Algoholism](https://github.com/agrawalnishant/algoholism) is a repository of code that I write to improve my understanding of fundamental Data Structures and Algorithms in Computer Science.
+[Algoholism](https://github.com/agrawalnishant/algoholism) has code to improve my understanding of fundamental Data Structures and Algorithms in Computer Science.
 
-While learning and implementing DS & Algos, I get crazy Ideas that are a fusion of my learning and my observations and thoughts.
+While learning and implementing DS & Algos, I get crazy Ideas that are a fusion of my learnings, observations, and thoughts.
 Will try to note them as well.
+
+#### Salient Features
+Have tried to improve quality and understandability of code using:
+- [Junit5 Parameterized Tests](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests)
+- [Fluent Logging](https://github.com/google/flogger)
 
 ### References
 Over the years, I have referred different books and online content, to learn and implement.
@@ -33,9 +38,12 @@ Following are the Algorithms implemented here:
 Sorting
 #
 
-Dynamic Programming
-#
-
+Dynamic Programming using Naive / BruteFOrce, Top-Down using Memoization, and Bottoms-Up using Table.
+# Fibonacci
+# Knapsack Maximization
+# Starcase Hops
+# Equal Sub Partitions
+# Longest Common Substring
 ```
 
 ### Crazy Ideas
