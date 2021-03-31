@@ -13,7 +13,7 @@ public class EqualSumArrayPartitions {
         counter = 0;
         for (int num : srcArr)
             sum += num;
-        boolean result = (sum % 2 == 0 && srcArr.length > 1) ? naiveCheckSum(srcArr, 0, sum / 2) : false;
+        boolean result = sum % 2 == 0 && srcArr.length > 1 && naiveCheckSum(srcArr, 0, sum / 2);
         flogger.atInfo().log("Total Calculations: " + counter);
         return result;
     }
@@ -34,7 +34,7 @@ public class EqualSumArrayPartitions {
         for (int num : srcArr)
             sum += num;
         int[][] possibilitiesMatrix = Utility.buildAndInit2DMatrix(srcArr.length, sum, -1);
-        boolean result = (sum % 2 == 0 && srcArr.length > 1) ? memoizedCheckSum(srcArr, 0, sum / 2, possibilitiesMatrix) : false;
+        boolean result = sum % 2 == 0 && srcArr.length > 1 && memoizedCheckSum(srcArr, 0, sum / 2, possibilitiesMatrix);
         flogger.atInfo().log("Total Calculations: " + counter);
         return result;
     }
