@@ -81,12 +81,12 @@ public class LongestCommonSubstring {
                     calculationCount.incrementAndGet();
                     if (firstString.charAt(ptr1) == secondString.charAt(ptr2)) {
                         max_length_matrix[ptr1 + 1][ptr2 + 1] = 1 + max_length_matrix[ptr1][ptr2];
-                        maxCommLength = maxCommLength > max_length_matrix[ptr1 + 1][ptr2 + 1] ? maxCommLength : max_length_matrix[ptr1 + 1][ptr2 + 1];
+                        maxCommLength = Math.max(maxCommLength, max_length_matrix[ptr1 + 1][ptr2 + 1]);
                     }
                 }
             }
 
-            flogger.atInfo().log("Max Calculations in Tabulized Model:" + calculationCount.get());
+            flogger.atInfo().log("Max Calculations in Tabulated Model:" + calculationCount.get());
             return maxCommLength;
         }
     }
