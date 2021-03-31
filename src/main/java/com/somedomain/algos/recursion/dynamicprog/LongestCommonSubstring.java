@@ -59,12 +59,35 @@ public class LongestCommonSubstring {
         }
         calculationCount.incrementAndGet();
         if (firstString[idxFirst] == secondString[idxSecond]) {
-            count1   = maxLengthMemoized(firstString, idxFirst + 1, secondString, idxSecond + 1, maxCommLen + 1, max_length_matrix, calculationCount);
+            count1 = maxLengthMemoized(firstString, idxFirst + 1, secondString, idxSecond + 1, maxCommLen + 1, max_length_matrix, calculationCount);
         }
 
         count2 = maxLengthMemoized(firstString, idxFirst, secondString, idxSecond + 1, 0, max_length_matrix, calculationCount);
         count3 = maxLengthMemoized(firstString, idxFirst + 1, secondString, idxSecond, 0, max_length_matrix, calculationCount);
         max_length_matrix[idxFirst][idxSecond][maxCommLen] = Math.max(count1, Math.max(count2, count3));
         return max_length_matrix[idxFirst][idxSecond][maxCommLen];
+    }
+
+    public static int maxLengthTabulized(final String firstString, final String secondString) {
+        int maxCommLength = 0;
+        if (firstString == null || firstString.length() == 0 || secondString == null || secondString.length() == 0) {
+            return 0;
+        } else {
+            AtomicInteger calculationCount = new AtomicInteger(0);
+            int[][] max_length_matrix = Utility.buildAndInit2DMatrix(firstString.length(), secondString.length(), 0);
+            max_length_matrix[0][0] = 0;
+            for (int ptr1 = 0; ptr1 < firstString.length(); ptr1++) {
+                for (int ptr2 = 0; ptr2 < secondString.length(); ptr2++) {
+                    calculationCount.incrementAndGet();
+                    if (firstString.charAt(ptr1) == secondString.charAt(ptr2)) {
+                        max_length_matrix[ptr1 + 1][ptr2 + 1] = 1 + max_length_matrix[ptr1][ptr2];
+                        maxCommLength = maxCommLength > max_length_matrix[ptr1 + 1][ptr2 + 1] ? maxCommLength : max_length_matrix[ptr1 + 1][ptr2 + 1];
+                    }
+                }
+            }
+
+            flogger.atInfo().log("Max Calculations in Tabulized Model:" + calculationCount.get());
+            return maxCommLength;
+        }
     }
 }

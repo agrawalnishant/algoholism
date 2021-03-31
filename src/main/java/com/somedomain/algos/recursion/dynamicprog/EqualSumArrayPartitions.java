@@ -13,19 +13,19 @@ public class EqualSumArrayPartitions {
         counter = 0;
         for (int num : srcArr)
             sum += num;
-        boolean result = (sum % 2 == 0 && srcArr.length > 1) ? naivelyCheckSum(srcArr, 0, sum / 2) : false;
+        boolean result = (sum % 2 == 0 && srcArr.length > 1) ? naiveCheckSum(srcArr, 0, sum / 2) : false;
         flogger.atInfo().log("Total Calculations: " + counter);
         return result;
     }
 
-    private static boolean naivelyCheckSum(final int[] srcArr, final int idx, final int sum) {
+    private static boolean naiveCheckSum(final int[] srcArr, final int idx, final int sum) {
         if (sum == 0)
             return true;
         else if (sum < 0 || idx >= srcArr.length || srcArr[idx] > sum)
             return false;
 
         counter++;
-        return naivelyCheckSum(srcArr, idx + 1, sum) || naivelyCheckSum(srcArr, idx + 1, sum - srcArr[idx]);
+        return naiveCheckSum(srcArr, idx + 1, sum) || naiveCheckSum(srcArr, idx + 1, sum - srcArr[idx]);
     }
 
     public static boolean memoizedCheck(int[] srcArr) {
