@@ -5,7 +5,7 @@
 While learning and implementing DS & Algos, I get crazy Ideas that are a fusion of my learnings, observations, and thoughts.
 Will try to note them as well.
 
-#### Salient Features
+### Salient Features
 Have tried to improve quality and understandability of code using:
 - [Junit5 Parameterized Tests](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests)
 - [Fluent Logging](https://github.com/google/flogger)
