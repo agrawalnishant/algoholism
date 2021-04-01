@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SmallestCommonSuperSequenceTest {
 
 
-    @ParameterizedTest(name = "Length of Smallest Common SuperSequence of {0} and {1} is {2}.")
+    @ParameterizedTest(name = "Naive Length of Smallest Common SuperSequence of {0} and {1} is {2}.")
     @CsvSource({
 
             "abcd , cdef, abcdef",
@@ -25,7 +25,7 @@ class SmallestCommonSuperSequenceTest {
     }
 
 
-    @ParameterizedTest(name = "Length of Smallest Common SuperSequence of {0} and {1} is {2}.")
+    @ParameterizedTest(name = "Memoized Length of Smallest Common SuperSequence of {0} and {1} is {2}.")
     @CsvSource({
 
             "abcd , cdef, abcdef",
@@ -39,5 +39,21 @@ class SmallestCommonSuperSequenceTest {
 
         String result = SmallestCommonSuperSequence.findSCSMemoized(firstString, secondString);
         assertEquals(expectedResult, result, "Expected Memoized Shortest Common SuperSequence : " + expectedResult + " but was: " + result);
+    }
+
+    @ParameterizedTest(name = "Tabulized Length of Smallest Common SuperSequence of {0} and {1} is {2}.")
+    @CsvSource({
+
+            "abcd , cdef, abcdef",
+            "abcd , efgh, abcdefgh",
+            "abcd , abcd, abcd",
+            "abcdef , xabcd, abcdefxabcd"
+
+
+    })
+    void scsTabuized(String firstString, String secondString, String expectedResult) {
+
+        String result = SmallestCommonSuperSequence.findSCSTabulized(firstString, secondString);
+        assertEquals(expectedResult, result, "Expected Tabuized Shortest Common SuperSequence : " + expectedResult + " but was: " + result);
     }
 }
