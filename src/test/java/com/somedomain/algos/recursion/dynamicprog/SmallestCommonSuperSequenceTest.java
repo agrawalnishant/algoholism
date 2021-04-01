@@ -13,14 +13,31 @@ class SmallestCommonSuperSequenceTest {
 
             "abcd , cdef, abcdef",
             "abcd , efgh, abcdefgh",
-            "abcd , abcd, abcd",
+            "abcdefgh, abcdefgh, abcdefgh",
             "abcdef , xabcd, abcdefxabcd"
 
 
     })
     void scsNaive(String firstString, String secondString, String expectedResult) {
 
-        String result = SmallestCommonSuperSequence.findSCS(firstString, secondString);
+        String result = SmallestCommonSuperSequence.findSCSNaive(firstString, secondString);
         assertEquals(expectedResult, result, "Expected Naive Shortest Common SuperSequence : " + expectedResult + " but was: " + result);
+    }
+
+
+    @ParameterizedTest(name = "Length of Smallest Common SuperSequence of {0} and {1} is {2}.")
+    @CsvSource({
+
+            "abcd , cdef, abcdef",
+            "abcd , efgh, abcdefgh",
+            "abcd , abcd, abcd",
+            "abcdef , xabcd, abcdefxabcd"
+
+
+    })
+    void scsMemoized(String firstString, String secondString, String expectedResult) {
+
+        String result = SmallestCommonSuperSequence.findSCSMemoized(firstString, secondString);
+        assertEquals(expectedResult, result, "Expected Memoized Shortest Common SuperSequence : " + expectedResult + " but was: " + result);
     }
 }
