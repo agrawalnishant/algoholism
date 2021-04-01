@@ -44,6 +44,7 @@ Dynamic Programming using Naive / BruteFOrce, Top-Down using Memoization, and Bo
 # Starcase Hops
 # Equal Sub Partitions
 # Longest Common Substring
+# Smallest Common Super Sequence
 ```
 
 ### Crazy Ideas
