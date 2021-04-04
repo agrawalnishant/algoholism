@@ -10,9 +10,9 @@ class LongestPalindromicStringLengthTest {
     @ParameterizedTest(name = "Length of Longest Palindrome in string {0} is {1}.")
     @CsvSource({
 
-            "dxyfgxndmxa, 3",
-            "abcddcba, 4",
-            "abca, 2",
+            "dxyfgxndmxa, 5",
+            "abcddcba, 8",
+            "abca, 3",
             "abc, 1",
             "a, 1",
             "ab, 1",
