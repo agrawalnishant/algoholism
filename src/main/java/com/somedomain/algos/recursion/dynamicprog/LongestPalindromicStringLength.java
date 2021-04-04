@@ -1,35 +1,63 @@
 package com.somedomain.algos.recursion.dynamicprog;
 
 import com.google.common.flogger.FluentLogger;
+import com.somedomain.algos.Utility;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class LongestPalindromicStringLength {
 
     private static final FluentLogger flogger = FluentLogger.forEnclosingClass();
+
     public static int lengthLongestPalindromeNaive(final String aString) {
         AtomicInteger calculationCount = new AtomicInteger(0);
-        int maxPalinLength = aString.length() <= 1 ? aString.length() : maxLengthPalindrome(aString, 0, aString.length() - 1, 0, calculationCount);
+        int maxPalinLength = aString.length() <= 1 ? aString.length() : maxLengthPalindromeNaive(aString, 0, aString.length() - 1, calculationCount);
         flogger.atInfo().log("Max Calculations in Naive Model for \"" + aString + "\" are :" + calculationCount.get());
 
         return maxPalinLength;
     }
 
-    private static int maxLengthPalindrome(final String aString, final int start, final int end, int currentMax, AtomicInteger calculationCount) {
-        if (start >= aString.length() || end <= 0 || start > end) { //|| idx > aString.length() - currentMax){
-            return currentMax;
+    private static int maxLengthPalindromeNaive(final String aString, final int start, final int end, AtomicInteger calculationCount) {
+        if (start >= aString.length() || end <= 0 || start > end) {
+            return 0;
         } else if (start == end) {
-            return currentMax + 1;
-        }
-
-        int secIdx = aString.substring(start + 1, end + 1).lastIndexOf(aString.charAt(start));
-        int count1 = 0, count2 = 0;
-        if (secIdx != -1) {
-            calculationCount.incrementAndGet();
-            count1 = maxLengthPalindrome(aString, start + 1, secIdx + start, currentMax + 2, calculationCount);
+            return 01;
         }
         calculationCount.incrementAndGet();
-        count2 = maxLengthPalindrome(aString, start + 1, end, currentMax, calculationCount);
+        if (aString.charAt(start) == aString.charAt(end)) {
+            return 2 + maxLengthPalindromeNaive(aString, start + 1, end - 1, calculationCount);
+        }
+        int count1 = maxLengthPalindromeNaive(aString, start + 1, end, calculationCount);
+        int count2 = maxLengthPalindromeNaive(aString, start, end - 1, calculationCount);
         return Math.max(count1, count2);
+    }
+
+    public static int lengthLongestPalindromeMemoized(final String aString) {
+        AtomicInteger calculationCount = new AtomicInteger(0);
+        int[][] lookupTable = Utility.buildAndInit2DMatrix(aString.length() + 1, aString.length() + 1, -1);
+        int maxPalinLength = aString.length() <= 1 ? aString.length() : maxLengthPalindromeMemoized(aString, 0, aString.length() - 1, lookupTable, calculationCount);
+        flogger.atInfo().log("Max Calculations in Memoized Model for \"" + aString + "\" are :" + calculationCount.get());
+
+        return maxPalinLength;
+    }
+
+    private static int maxLengthPalindromeMemoized(final String aString, final int start, final int end, int[][] lookupTable, AtomicInteger calculationCount) {
+        if (start > aString.length() || end < 0 || start > end) {
+            return 0;
+        } else if (start == end) {
+            return 1;
+        }
+        if (lookupTable[start][end] != -1) {
+            return lookupTable[start][end];
+        }
+        calculationCount.incrementAndGet();
+        if (aString.charAt(start) == aString.charAt(end)) {
+            lookupTable[start][end] = 2 + maxLengthPalindromeMemoized(aString, start + 1, end - 1, lookupTable, calculationCount);
+        } else {
+            int count1 = maxLengthPalindromeMemoized(aString, start + 1, end, lookupTable, calculationCount);
+            int count2 = maxLengthPalindromeMemoized(aString, start, end - 1, lookupTable, calculationCount);
+            lookupTable[start][end] = Math.max(count1, count2);
+        }
+        return lookupTable[start][end];
     }
 }
