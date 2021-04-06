@@ -50,5 +50,25 @@ class LongestPalindromicStringLengthTest {
 
     }
 
+    @ParameterizedTest(name = "Length of Longest Palindrome in string {0} is {1}.")
+    @CsvSource({
+
+            "zyxzbcddccbzx, 10",
+            "dxyfgxndmxa, 5",
+            "abcddcba, 8",
+            "abca, 3",
+            "abc, 1",
+            "a, 1",
+            "ab, 1"
+
+
+    })
+    void lengthLongestPalindromeOptimized(String firstString, int maxPalindromeLen) {
+        int result = LongestPalindromicStringLength.lengthLongestPalindromeTabulized(firstString);
+        assertEquals(Long.valueOf(maxPalindromeLen), result,
+                "Optimized: Expected Length of longest palindrome to be : " + maxPalindromeLen + " but was: " + result);
+
+    }
+
 
 }
