@@ -60,4 +60,29 @@ public class LongestPalindromicStringLength {
         }
         return lookupTable[start][end];
     }
+
+    public static int lengthLongestPalindromeTabulized(final String aString) {
+
+        if (aString.length() <= 0) {
+            return 0;
+        } else if (aString.length() == 1) {
+            return 1;
+        }
+        AtomicInteger calculationCount = new AtomicInteger(0);
+        int[][] lookupTable = Utility.buildAndInit2DUnityDiagonalMatrix(aString.length(), aString.length(), 0);
+        int maxPalinLength = 0;
+        int strLen = aString.length();
+        for (int counter = strLen - 1; counter >= 0; counter--) {
+            for (int idx = counter + 1; idx < strLen; idx++, calculationCount.incrementAndGet()) {
+                if (aString.charAt(counter) == aString.charAt(idx)) {
+                    lookupTable[counter][idx] = 2 + lookupTable[counter + 1][idx - 1];
+                } else {
+                    lookupTable[counter][idx] = Math.max(lookupTable[counter][idx - 1], lookupTable[counter + 1][idx]);
+                }
+            }
+        }
+        maxPalinLength = lookupTable[0][strLen - 1];
+        flogger.atInfo().log("Max Calculations in Tabulized Model for \"" + aString + "\" are :" + calculationCount.get());
+        return maxPalinLength;
+    }
 }
