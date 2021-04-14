@@ -2,6 +2,7 @@ package com.somedomain.algos.sorting.generic;
 
 import com.google.common.flogger.FluentLogger;
 import com.somedomain.algos.sorting.ObjectSort;
+import com.somedomain.algos.sorting.generics.MergeObjectSort;
 import com.somedomain.utilities.comparators.IntegerArrayListComparator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

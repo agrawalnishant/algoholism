@@ -1,18 +1,7 @@
 package com.somedomain.algos.sorting;
 
-import static com.somedomain.algos.Utility.print;
-
 public class Practice {
 
-    public static int[] dutchNationalFlag(final int[] arr) {
-        int left = 0, right = arr.length - 1;
-        print(arr, "Before Start");
-        while (left < right) {
-
-        }
-        print(arr, "after");
-        return null;
-    }
 
     public static void main(String[] args) {
         int[][] matrix = {{10, 11, 12, 13},

@@ -1,4 +1,4 @@
-package com.somedomain.algos.sorting.generic;
+package com.somedomain.algos.sorting.generics;
 
 import com.somedomain.algos.sorting.ObjectSort;
 import com.somedomain.ds.containers.queue.ArrayBackedSimpleQueue;
