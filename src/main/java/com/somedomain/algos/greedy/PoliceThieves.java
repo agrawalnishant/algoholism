@@ -3,7 +3,10 @@ package com.somedomain.algos.greedy;
 public class PoliceThieves {
 
     public static int policeThief(char[] arr, int k) {
+        int[] tS = new int[k], pS = new int[k];
         int tIdx = 0, pIdx = 0, caught = 0;
+
+        int count = 0;
         for (char c : arr) {
             switch (c) {
                 case 'P':
