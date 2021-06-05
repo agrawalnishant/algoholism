@@ -14,7 +14,7 @@ public class SelectionSort implements PrimitiveSort {
             int minPos = outCounter;
             // Find the Minimum ( or Maximum) in remaining positions, and bring
             // it to front by swapping.
-            for (int inCounter = outCounter + 1; inCounter < arrayLen; inCounter++) {
+            for (int inCounter = outCounter + 1; inCounter <= maxArrayIndex; inCounter++) {
                 if (sourceArray[minPos] > sourceArray[inCounter]) {
                     minPos = inCounter;
                 }
