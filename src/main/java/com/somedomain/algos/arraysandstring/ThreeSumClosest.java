@@ -67,25 +67,27 @@ public class ThreeSumClosest {
 
     private static int closestTripletSum(int[] nums, int target) {
         Arrays.sort(nums);
-        int len = nums.length;
-        if (nums.length == 3 || nums[0] == nums[nums.length - 1]) {
-            return nums[0] + nums[1] + nums[2];
+        int len = nums.length, closestSum = nums[0] + nums[1] + nums[2];
+        if (nums.length == 3 || nums[0] == nums[len - 1]) {
+            return closestSum;
         }
-        Integer closestSum = nums[0] + nums[1] + nums[2];
+        int currentMinDiff = Math.abs(target - closestSum);
+        int currentDiff = currentMinDiff;
         for (int outerIdx = 0; outerIdx < len - 2; outerIdx++) {
-            int first = nums[outerIdx];
             int left = outerIdx + 1, right = len - 1;
             while (left < right) {
-                int sum = first + nums[left] + nums[right];
-                //System.out.println("Sum: " + sum);
-                if (Math.abs(target - sum) < Math.abs(target - closestSum)) {
+                int sum = nums[outerIdx] + nums[left] + nums[right];
+                currentDiff = Math.abs(target - sum);
+                if (currentDiff < currentMinDiff) {
                     closestSum = sum;
+                    currentMinDiff = currentDiff;
                 }
                 if (sum < target) {
                     left++;
                 } else {
                     right--;
                 }
+
             }
         }
         return closestSum;
