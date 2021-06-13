@@ -54,7 +54,6 @@ public class Utility {
     /**
      * Returns random position in that array.
      *
-     * @param targetArray
      * @param length
      * @param isSorted
      * @return
@@ -122,9 +121,10 @@ public class Utility {
         // 0, 100, 289, 17 }));
     }
 
-    public static void print(int[] integerArray, String msg) {
+    public static String print(int[] integerArray, String msg) {
         msg = (msg == null ? "" : msg);
         logger.atFine().log(msg + "\t" + Arrays.toString(integerArray));
+        return Arrays.toString(integerArray);
 
     }
 
