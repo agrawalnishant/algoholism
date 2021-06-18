@@ -11,6 +11,9 @@ public class BitwiseNinja {
         System.out.println("isPowerOfTwo(1): " + isPowerOfTwo(1));
         int[] arr = {0, 1, 2, 4, 5, 6, 7, 8, 9,10,11};
         System.out.println("Missing Number in " + Arrays.toString(arr) + " is :" + findMissingNumber(arr));
+
+        arr = new int[]{2, 3, 2, 6, 3, 5, 6, 4, 5};
+        System.out.println("Non Duplicate Number in " + Arrays.toString(arr) + " is : " + findNonDuplicateNumber(arr));
     }
 
 
@@ -20,6 +23,13 @@ public class BitwiseNinja {
             missingNumber ^= count ^ nums[count];
         }
         return missingNumber;
+    }
+    public static int findNonDuplicateNumber(int[] nums) {
+        int nonDupNumber = 0;
+        for (int count = 0; count < nums.length; count++) {
+            nonDupNumber ^= nums[count];
+        }
+        return nonDupNumber;
     }
 
     public static void countNumberOfBits(int number) {
