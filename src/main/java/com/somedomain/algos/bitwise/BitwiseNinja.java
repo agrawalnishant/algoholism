@@ -1,20 +1,6 @@
 package com.somedomain.algos.bitwise;
 
-import java.util.Arrays;
-
 public class BitwiseNinja {
-
-
-    public static void main(String[] args) {
-        countNumberOfBits(21);
-        System.out.println(convertToBits(21));
-        System.out.println("isPowerOfTwo(1): " + isPowerOfTwo(1));
-        int[] arr = {0, 1, 2, 4, 5, 6, 7, 8, 9,10,11};
-        System.out.println("Missing Number in " + Arrays.toString(arr) + " is :" + findMissingNumber(arr));
-
-        arr = new int[]{2, 3, 2, 6, 3, 5, 6, 4, 5};
-        System.out.println("Non Duplicate Number in " + Arrays.toString(arr) + " is : " + findNonDuplicateNumber(arr));
-    }
 
 
     public static int findMissingNumber(int[] nums) {
@@ -24,6 +10,7 @@ public class BitwiseNinja {
         }
         return missingNumber;
     }
+
     public static int findNonDuplicateNumber(int[] nums) {
         int nonDupNumber = 0;
         for (int count = 0; count < nums.length; count++) {
@@ -32,17 +19,28 @@ public class BitwiseNinja {
         return nonDupNumber;
     }
 
-    public static void countNumberOfBits(int number) {
+
+    public static int findHammingDistance(int num1, int num2) {
+        int distance = 0;
+        int xor = num1 ^ num2;
+        while (xor != 0) {
+            distance++;
+            xor &= xor - 1;
+        }
+        return distance;
+    }
+
+    public static int countNumberOfBits(final int sourceNumber) {
+        int number = sourceNumber;
         int bitCount = 0;
         while (number > 0) {
             number >>= 1;
             bitCount++;
         }
-        System.out.println("Number of Bits in " + number + " is " + bitCount);
+        return bitCount;
     }
 
     public static String convertToBits(int number) {
-        System.out.println("");
         String bits = new String();
         for (int count = 31; count >= 0; count--) {
             bits += ("" + ((number & (1 << count)) == 0 ? 0 : 1));
