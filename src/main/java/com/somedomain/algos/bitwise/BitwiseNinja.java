@@ -1,5 +1,7 @@
 package com.somedomain.algos.bitwise;
 
+import java.util.Arrays;
+
 public class BitwiseNinja {
 
 
@@ -7,6 +9,17 @@ public class BitwiseNinja {
         countNumberOfBits(21);
         System.out.println(convertToBits(21));
         System.out.println("isPowerOfTwo(1): " + isPowerOfTwo(1));
+        int[] arr = {0, 1, 2, 4, 5, 6, 7, 8, 9,10,11};
+        System.out.println("Missing Number in " + Arrays.toString(arr) + " is :" + findMissingNumber(arr));
+    }
+
+
+    public static int findMissingNumber(int[] nums) {
+        int missingNumber = nums.length;
+        for (int count = 0; count < nums.length; count++) {
+            missingNumber ^= count ^ nums[count];
+        }
+        return missingNumber;
     }
 
     public static void countNumberOfBits(int number) {
